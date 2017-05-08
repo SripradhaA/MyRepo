@@ -1,0 +1,164 @@
+#RS_CM_DIV {
+	position : absolute;
+	Z-INDEX: 999;
+	left: 190px;
+	width : 200px;
+	/*width : 190px;*/
+}
+
+#RS_CM_IF {
+	position : absolute;
+	Z-INDEX: 998;
+	left: 190px;
+	width : 200px;
+	/*width : 190px;*/
+}
+
+			
+.RS_ContextMenuTable {
+    border: 1px solid #002D96;
+    padding: 0px ;
+	margin: 0px;
+	Z-INDEX: 999;
+	background:	white;
+	shadow: 4px ;
+	filter:	 progid:DXImageTransform.Microsoft.Shadow(color="#cccccc", Direction=130, Strength=4) alpha(Opacity=100);
+	background-image: url(a.rapidspellweb?t=r&n=menu_back3.png);
+
+}
+
+
+.RS_CMItemSeparator{
+
+	border-bottom: 1px solid #C6D6EF;
+	border-top: 1px solid white;
+	border-right: none;
+	border-left: none;
+	margin-left: 30px;
+	padding:0px;
+	margin-top:0px;
+	margin-bottom:0px;
+	margin-right:0px;
+	width:	184px ;
+	height: 1px;
+	Z-INDEX: 999;
+	
+}
+
+.RS_ContextMenuItem_Over {
+	background:		#FDF0BC;
+	background-image: none;
+	border:			1px solid #002D96;
+	font-family: Arial, Helvetica, Sans-serif ; 
+	font-size: 10pt;
+	display: block;
+	cursor: pointer; cursor: hand;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-right: 3px;
+	padding-left: 29px;
+	margin:1px;
+	Z-INDEX: 999;
+	white-space: nowrap;
+	/*width:			190px ;*/
+/**new**/	
+width:			212px ;	
+}
+
+.RS_menuTextOffset{
+	width: 29px;
+}
+
+.RS_ContextMenuItem {
+	
+	font-family: Arial, Helvetica, Sans-serif ; 
+	font-size: 10pt;
+	color:	black;
+	text-decoration: none ;
+	display: block;
+
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-right: 4px;
+	padding-left: 30px;
+	margin:1px;
+/*	width:			190px ; */
+/*new*/
+width:			212px ;
+	Z-INDEX: 999;
+	white-space: nowrap;
+}
+
+.RS_ContextMenuItem_AllSubItem{
+	
+	font-family: Arial, Helvetica, Sans-serif ; 
+	font-size: 10pt;
+	color:	#bbbbbb;
+	text-decoration: none ;
+	text-align:center;
+	display: block;
+border-left: 1px solid #eeeeee;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-right: 4px;
+	padding-left: 4px;
+	margin:1px;
+	width:			32px ;
+	Z-INDEX: 999;
+	white-space: nowrap;
+}
+
+.RS_ContextMenuItem_AllSubItem_Over{
+	
+	background:		#FDF0BC;
+	background-image: none;
+	border:			1px solid #002D96;
+	font-family: Arial, Helvetica, Sans-serif ; 
+	font-size: 10pt;
+	display: block;
+	cursor: pointer; cursor: hand;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-right: 3px;
+	padding-left: 4px;
+	margin:1px;
+	Z-INDEX: 999;
+	white-space: nowrap;
+	text-align:center;
+	width:			32px ;
+}
+
+.RS_MenuEditBox{
+	
+	font-family: Arial, Helvetica, Sans-serif ; 
+	font-size: 10pt;
+	color:	black;
+	text-decoration: none ;
+
+	margin: 0px;
+
+	Z-INDEX: 999;
+	width:	184px ;
+	height: 18pt;
+	vertical-align: middle;
+
+}
+
+
+.RS_ContextMenuItem_Disabled {
+	
+	font-family: Arial, Helvetica, Sans-serif ; 
+	font-size: 10pt;
+	color:	#666666;
+	text-decoration: none ;
+	cursor: default; 
+	display: block;
+
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-right: 4px;
+	padding-left: 30px;
+	margin:1px;
+	width: 184px ;
+	Z-INDEX: 999;
+}

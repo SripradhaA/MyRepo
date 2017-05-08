@@ -1,0 +1,699 @@
+/**
+ * 
+ */
+package com.EMD.LSDB.dao.MasterMaintenance;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.sql.Types;
+import java.util.ArrayList;
+
+import org.apache.tomcat.dbcp.dbcp2.DelegatingConnection;//Added for CR-123 & Tomcat
+
+import oracle.jdbc.driver.OracleTypes;
+import oracle.sql.ARRAY;
+import oracle.sql.ArrayDescriptor;
+
+import com.EMD.LSDB.common.constant.ApplicationConstants;
+import com.EMD.LSDB.common.constant.DatabaseConstants;
+import com.EMD.LSDB.common.errorhandler.ErrorInfo;
+import com.EMD.LSDB.common.exception.ApplicationException;
+import com.EMD.LSDB.common.exception.BusinessException;
+import com.EMD.LSDB.common.exception.DataAccessException;
+import com.EMD.LSDB.common.exception.EMDException;
+import com.EMD.LSDB.common.logger.LogUtil;
+import com.EMD.LSDB.common.util.ApplicationUtil;
+import com.EMD.LSDB.dao.common.DBHelper;
+import com.EMD.LSDB.dao.common.EMDDAO;
+import com.EMD.LSDB.dao.common.EMDQueries;
+import com.EMD.LSDB.vo.common.PerformanceCurveVO;
+
+/**
+ * @author PS57222
+ *  
+ */
+public class ModelPerfCurveDAO extends EMDDAO {
+	
+	/***************************************************************************
+	 * @author Satyam Computer Services Ltd
+	 * @version 1.0
+	 * @param objGenArrangeVO
+	 *            The Object for Search Performance Curve Images
+	 * @return boolean The Flag for success or failure
+	 * @throws EMDException
+	 **************************************************************************/
+	
+	public static ArrayList fetchPerfCurveImages(
+			PerformanceCurveVO objPerformanceCurveVO) throws EMDException {
+		LogUtil.logMessage("Entering ModelPerfCurveDAO:fetchPerfCurveImages");
+		
+		Connection objConnection = null;
+		ArrayList arlImageList = new ArrayList();
+		ResultSet objResultSet = null;
+		String strOracleCode = null;
+		String strErrorMessage = null;
+		CallableStatement objCallableStatement = null;
+		int intLSDBErrorID = 0;
+		String strMessage = null;
+		String strLogUser = "";
+		try {
+			strLogUser = objPerformanceCurveVO.getUserID();
+			objConnection = DBHelper.prepareConnection();
+			objCallableStatement = objConnection
+			.prepareCall(EMDQueries.SP_SELECT_MODEL_PERF_CURVE);
+			objCallableStatement.setInt(1, objPerformanceCurveVO
+					.getModelSeqNo());
+			objCallableStatement.registerOutParameter(2, OracleTypes.CURSOR);
+			objCallableStatement
+			.setString(3, objPerformanceCurveVO.getUserID());
+			objCallableStatement.registerOutParameter(4, Types.INTEGER);
+			objCallableStatement.registerOutParameter(5, Types.VARCHAR);
+			objCallableStatement.registerOutParameter(6, Types.VARCHAR);
+			objCallableStatement.execute();
+			
+			objResultSet = (ResultSet) objCallableStatement.getObject(2);
+			LogUtil.logMessage(objResultSet);
+			
+			intLSDBErrorID = objCallableStatement.getInt(4);
+			strOracleCode = objCallableStatement.getString(5);
+			strErrorMessage = objCallableStatement.getString(6);
+			
+			if (intLSDBErrorID != 0) {
+				LogUtil.logMessage("LSDBErrorID!=0");
+				ErrorInfo objErrorInfo = new ErrorInfo();
+				
+				strMessage = (String.valueOf(intLSDBErrorID));
+				objErrorInfo.setMessageID(strMessage);
+				
+				throw new DataAccessException(objErrorInfo);
+			}
+			if (strOracleCode != null && !"0".equals(strOracleCode)) {
+				LogUtil.logMessage("Enters into oracle error code block:");
+				ErrorInfo objErrorInfo = new ErrorInfo();
+				
+				StringBuffer sb = new StringBuffer();
+				sb.append(strOracleCode + " ");
+				sb.append(strErrorMessage);
+				objErrorInfo.setMessage(sb.toString());
+				throw new ApplicationException(objErrorInfo);
+			}
+			
+			while (objResultSet.next()) {
+				
+				objPerformanceCurveVO = new PerformanceCurveVO();
+				objPerformanceCurveVO.setCurveSeqNo(objResultSet
+						.getInt(DatabaseConstants.LS208_MDL_CURV_IMG_SEQ_NO));
+				objPerformanceCurveVO.setModelSeqNo(objResultSet
+						.getInt(DatabaseConstants.LS200_MDL_SEQ_NO));
+				objPerformanceCurveVO
+				.getFileVO()
+				.setImageSeqNo(
+						objResultSet
+						.getInt(DatabaseConstants.LS170_IMG_SEQ_NO));
+				objPerformanceCurveVO
+				.getFileVO()
+				.setContentType(
+						objResultSet
+						.getString(DatabaseConstants.LS170_IMG_CONTENT_TYPE));
+				
+				/** Added For LSDB_CR-63 on 11-Dec-08 by ps57222 **/
+				
+				objPerformanceCurveVO.setImageName((objResultSet
+						.getString(DatabaseConstants.LS208_MDL_PDF_IMG_NAME)==null)? "":objResultSet.getString(DatabaseConstants.LS208_MDL_PDF_IMG_NAME));
+				arlImageList.add(objPerformanceCurveVO);
+				
+			}
+			
+		}
+		
+		catch (DataAccessException objDataExp) {
+			LogUtil
+			.logMessage("Enters into DataAccessException exception in ModelPerfCurveDAO:fetchPerfCurveImages");
+			ErrorInfo objErrorInfo = objDataExp.getErrorInfo();
+			objErrorInfo.setMessage(objDataExp.getMessage());
+			LogUtil
+			.logMessage("Enters into catch block in ModelPerfCurveDAO:fetchPerfCurveImages"
+					+ objErrorInfo.getMessage());
+			throw new BusinessException(objDataExp, objErrorInfo);
+		} catch (ApplicationException objAppExp) {
+			LogUtil
+			.logMessage("Enters into ApplicationException exception in ModelPerfCurveDAO:fetchPerfCurveImages");
+			ErrorInfo objErrorInfo = objAppExp.getErrorInfo();
+			objErrorInfo.setMessage(ApplicationConstants.LOG_USER + strLogUser
+					+ "-" + objErrorInfo.getMessage());
+			LogUtil
+			.logMessage("Enters into catch block in ModelPerfCurveDAO:fetchPerfCurveImages"
+					+ objErrorInfo.getMessage());
+			throw new ApplicationException(objAppExp, objErrorInfo);
+		}
+		
+		catch (Exception objExp) {
+			LogUtil
+			.logMessage("Enters into Exception exception in ModelPerfCurveDAO:fetchPerfCurveImages");
+			ErrorInfo objErrorInfo = new ErrorInfo();
+			objErrorInfo.setMessage(ApplicationConstants.LOG_USER + strLogUser
+					+ "-" + objExp.getMessage());
+			throw new ApplicationException(objExp);
+		}
+		
+		finally {
+			try {
+				
+				DBHelper.closeSQLObjects(objResultSet, objCallableStatement,
+						objConnection);
+			}
+			
+			catch (Exception objExp) {
+				LogUtil
+				.logMessage("Enters into Exception exception in ModelPerfCurveDAO:fetchPerfCurveImages");
+				ErrorInfo objErrorInfo = new ErrorInfo();
+				objErrorInfo.setMessage(ApplicationConstants.LOG_USER
+						+ strLogUser + "-" + objExp.getMessage());
+				throw new ApplicationException(objExp);
+			}
+			
+		}
+		
+		return arlImageList;
+		
+	}
+	
+	/***************************************************************************
+	 * @author Satyam Computer Services Ltd
+	 * @version 1.0
+	 * @param objGenArrangeVO
+	 *            The Object used for Upload Performance Curve
+	 * @return boolean The Flag for success or failure
+	 * @throws EMDException
+	 **************************************************************************/
+	
+	public static int uploadPerfCurveImage(
+			PerformanceCurveVO objPerformanceCurveVO) throws EMDException {
+		
+		LogUtil.logMessage("Entering ModelPerfCurveDAO:uploadPerfCurveImage");
+		
+		Connection objConnection = null;
+		ArrayList arlImagedetlsList = new ArrayList();
+		int intReturn = 0;
+		int intInserted;
+		int intImgSeqUpdated;
+		StringBuffer strBuffer = null;
+		String strLogUser = "";
+		try {
+			
+			strLogUser = objPerformanceCurveVO.getUserID();
+			objConnection = DBHelper.prepareConnection();
+			
+			int intFileSize = objPerformanceCurveVO.getFileVO().getFileLength();
+			LogUtil.logMessage("FileSize in DAO:" + intFileSize);
+			
+			String strContentType = objPerformanceCurveVO.getFileVO()
+			.getContentType();
+			int intNextSeqNo = DBHelper.getSequenceNumber(objConnection,
+					DatabaseConstants.LS170_IMG_SEQ_Name);
+			int intNextCurveSeqNo = DBHelper.getSequenceNumber(objConnection,
+					DatabaseConstants.LS409_ORDR_CURV_IMG_SEQ_NO);
+			
+			Timestamp objSqlDate = ApplicationUtil.getCurrentTimeStamp();
+			
+			arlImagedetlsList.add(new Integer(intNextSeqNo));
+			arlImagedetlsList.add(strContentType);
+			arlImagedetlsList.add(objPerformanceCurveVO.getUserID());
+			arlImagedetlsList.add(objSqlDate);
+			
+			LogUtil.logMessage("Queries for Inserting images");
+			LogUtil
+			.logMessage("Enters into insert Empty Image Block of ModelPerfCurveDAO:uploadImage");
+			
+			intInserted = DBHelper.executeUpdate(objConnection,
+					EMDQueries.Query_EmptyImage, arlImagedetlsList);
+			LogUtil.logMessage("Insert Status of empty Image" + intInserted);
+			
+			LogUtil
+			.logMessage("Enters into Update Image Block of ModelPerfCurveDAO:uploadImage");
+			
+			strBuffer = new StringBuffer();
+			strBuffer.append(EMDQueries.Query_UpdateImage + intNextSeqNo);
+			String strUpdatequery = strBuffer.toString();
+			boolean blnUpdated = DBHelper.executeDatabaseUpdateUpload(
+					objConnection, strUpdatequery, objPerformanceCurveVO
+					.getFileVO());
+			
+			LogUtil
+			.logMessage("Enters into Insert ImgSeqNo Block of ModelPerfCurveDAO:uploadImage"
+					+ blnUpdated);
+			
+			ArrayList arlImageDetlsList1 = new ArrayList();
+			arlImageDetlsList1.add(new Integer(intNextCurveSeqNo));
+			arlImageDetlsList1.add(new Integer(objPerformanceCurveVO
+					.getModelSeqNo()));
+			arlImageDetlsList1.add(objPerformanceCurveVO.getUserID());
+			arlImageDetlsList1.add(objSqlDate);
+			arlImageDetlsList1.add(new Integer(intNextSeqNo));
+			
+            //  added for upload PDF image file name
+			
+			if(objPerformanceCurveVO.getFileVO().getFileName()!=null ){
+				String strFileName =  objPerformanceCurveVO.getFileVO().getFileName();
+				//strFileName = strFileName.substring(0,strFileName.indexOf("."));
+				arlImageDetlsList1.add(new String(strFileName));
+//				//Added for CR_121 for Performance Curve Rearrange
+				arlImageDetlsList1.add(new Integer(objPerformanceCurveVO.getOrderByCode()));
+			}
+		   //   END
+			
+			intImgSeqUpdated = DBHelper.executeUpdate(objConnection,
+					EMDQueries.Query_InsertPerfImgSeqNo, arlImageDetlsList1);
+			
+			LogUtil
+			.logMessage("Insert ImgSeqNo Block of ModelPerfCurveDAO:uploadImage"
+					+ intImgSeqUpdated);
+			
+			if (intImgSeqUpdated == 1) {
+				intReturn = 0;
+				LogUtil.logMessage("blnReturn" + intReturn);
+			}
+			
+		} catch (DataAccessException objDataExp) {
+			LogUtil
+			.logMessage("Enters into DataAccessException ModelPerfCurveDAO:uploadImage");
+			ErrorInfo objErrorInfo = objDataExp.getErrorInfo();
+			objErrorInfo.setMessage(objDataExp.getMessage());
+			LogUtil
+			.logMessage("ENters into catch block in ModelPerfCurveDAO:uploadImage"
+					+ objErrorInfo.getMessage());
+			throw new BusinessException(objDataExp, objErrorInfo);
+		} catch (Exception objExp) {
+			try {
+				objConnection.rollback();
+			} catch (Exception objinnerExp) {
+				ErrorInfo objErrorInfo = new ErrorInfo();
+				objErrorInfo.setMessage(ApplicationConstants.LOG_USER
+						+ strLogUser + "-" + objinnerExp.getMessage());
+				LogUtil
+				.logMessage("ENters into Exception block in ModelPerfCurveDAO:uploadImage"
+						+ objinnerExp.getMessage());
+				throw new ApplicationException(objinnerExp, objErrorInfo);
+				
+			}
+			LogUtil.logMessage("Enters into Exception exception...");
+			ErrorInfo objErrorInfo = new ErrorInfo();
+			objErrorInfo.setMessage(ApplicationConstants.LOG_USER + strLogUser
+					+ "-" + objExp.getMessage());
+			LogUtil
+			.logMessage("ENters into Exception block in ModelPerfCurveDAO:uploadImage"
+					+ objExp.getMessage());
+			throw new ApplicationException(objExp, objErrorInfo);
+		}
+		
+		finally {
+			try {
+				
+				DBHelper.closeConnection(objConnection);
+			}
+			
+			catch (Exception objExp) {
+				ErrorInfo objErrorInfo = new ErrorInfo();
+				objErrorInfo.setMessage(ApplicationConstants.LOG_USER
+						+ strLogUser + "-" + objExp.getMessage());
+				LogUtil
+				.logMessage("ENters into Exception block in ModelPerfCurveDAO:uploadImage"
+						+ objExp.getMessage());
+				throw new ApplicationException(objExp, objErrorInfo);
+			}
+			
+		}
+		
+		return intReturn;
+	}
+	
+	/***************************************************************************
+	 * @author Satyam Computer Services Ltd
+	 * @version 1.0
+	 * @param objGenArrangeVO
+	 *            The Object used for delete Performance Curve Images in
+	 * @return boolean The Flag for success or failure
+	 * @throws EMDException
+	 **************************************************************************/
+	
+	public static int deletePerfCurveImage(
+			PerformanceCurveVO objPerformanceCurveVO) throws EMDException {
+		
+		LogUtil.logMessage("Entering ModelPerfCurveDAO:deletePerfCurveImage");
+		
+		Connection objConnection = null;
+		int intReturn = 0;
+		int intImgSeqUpdated;
+		ArrayList arlUpdateList = null;
+		String strLogUser = "";
+		try {
+			strLogUser = objPerformanceCurveVO.getUserID();
+			objConnection = DBHelper.prepareConnection();
+			arlUpdateList = new ArrayList();
+			
+			arlUpdateList
+			.add(new Integer(objPerformanceCurveVO.getModelSeqNo()));
+			arlUpdateList
+			.add(new Integer(objPerformanceCurveVO.getCurveSeqNo()));
+			
+			intImgSeqUpdated = DBHelper.executeUpdate(objConnection,
+					EMDQueries.Query_DeletePerfImgSeqNo, arlUpdateList);
+			
+			if (intImgSeqUpdated == 1) {
+				intReturn = 0;
+			}
+			
+		}
+		
+		catch (DataAccessException objDatExp) {
+			ErrorInfo objErrorInfo = objDatExp.getErrorInfo();
+			objErrorInfo.setMessage(objDatExp.getMessage());
+			LogUtil
+			.logMessage("Enters into DataAccess Exception block in ModelPerfCurveDAO:deletePerfCurveImage"
+					+ objDatExp.getErrorInfo().getMessageID());
+			throw new BusinessException(objDatExp, objErrorInfo);
+		}
+		
+		catch (Exception objExp) {
+			LogUtil
+			.logMessage("Enters into Exception exception in ModelPerfCurveDAO:deletePerfCurveImage");
+			ErrorInfo objErrorInfo = new ErrorInfo();
+			objErrorInfo.setMessage(ApplicationConstants.LOG_USER + strLogUser
+					+ "-" + objExp.getMessage());
+			LogUtil
+			.logMessage("Enters into catch block in ModelPerfCurveDAO:deletePerfCurveImage"
+					+ objErrorInfo.getMessage());
+			throw new ApplicationException(objExp);
+		}
+		
+		finally {
+			try {
+				
+				DBHelper.closeConnection(objConnection);
+			}
+			
+			catch (Exception objExp) {
+				LogUtil
+				.logMessage("Enters into Exception exception in ModelPerfCurveDAO:deletePerfCurveImage");
+				ErrorInfo objErrorInfo = new ErrorInfo();
+				objErrorInfo.setMessage(ApplicationConstants.LOG_USER
+						+ strLogUser + "-" + objExp.getMessage());
+				LogUtil
+				.logMessage("Enters into catch block in ModelPerfCurveDAO:deletePerfCurveImage"
+						+ objErrorInfo.getMessage());
+				throw new ApplicationException(objExp);
+			}
+			
+		}
+		
+		return intReturn;
+	}
+	
+	/***************************************************************************
+	 * @author Satyam Computer Services Ltd
+	 * @version 1.0
+	 * @param objPerformanceCurveVO
+	 *            The Object used to modify Performance Curve Image Name *
+	 * @return int value which indicate success or failure
+	 * @throws EMDException
+	 **************************************************************************/
+	
+	public static int modifyPerfCurveImageName(
+			PerformanceCurveVO objPerformanceCurveVO) throws EMDException {
+		
+		LogUtil
+		.logMessage("Entering ModelPerfCurveDAO:modifyPerfCurveImageName");
+		
+		Connection objConnection = null;
+		CallableStatement objCallableStatement = null;
+		String strOracleCode = null;
+		String strErrorMessage = null;
+		int intStatusCode;
+		int intLSDBErrorID = 0;
+		String strMessage = null;
+		String strLogUser = "";
+		try {
+			strLogUser = objPerformanceCurveVO.getUserID();
+			objConnection = DBHelper.prepareConnection();
+			objCallableStatement = objConnection
+			.prepareCall(EMDQueries.SP_UPDATE_MDL_PERF_CURV);
+			objCallableStatement.setInt(1, objPerformanceCurveVO
+					.getModelSeqNo());
+			LogUtil
+			.logMessage("ModelSeqNo in ModelPerfCurveDAO:modifyPerfCurveImageName:"
+					+ objPerformanceCurveVO.getModelSeqNo());
+			objCallableStatement.setInt(2, objPerformanceCurveVO
+					.getCurveSeqNo());
+			LogUtil
+			.logMessage("CurSeqNo in ModelPerfCurveDAO:modifyPerfCurveImageName:"
+					+ objPerformanceCurveVO.getCurveSeqNo());
+			objCallableStatement.setString(3, objPerformanceCurveVO
+					.getImageName());
+			LogUtil
+			.logMessage("Image Name in ModelPerfCurveDAO:modifyPerfCurveImageName:"
+					+ objPerformanceCurveVO.getImageName());
+			objCallableStatement
+			.setString(4, objPerformanceCurveVO.getUserID());
+			
+			objCallableStatement.registerOutParameter(5, Types.INTEGER);
+			objCallableStatement.registerOutParameter(6, Types.VARCHAR);
+			objCallableStatement.registerOutParameter(7, Types.VARCHAR);
+			
+			intStatusCode = objCallableStatement.executeUpdate();
+			
+			if (intStatusCode > 0) {
+				intStatusCode = 0;
+			}
+			
+			intLSDBErrorID = objCallableStatement.getInt(5);
+			LogUtil.logMessage("LSDBErrorID:" + intLSDBErrorID);
+			strOracleCode = objCallableStatement.getString(6);
+			LogUtil.logMessage("OracleErrorCode:" + strOracleCode);
+			strErrorMessage = (String) objCallableStatement.getString(7);
+			
+			LogUtil.logMessage("ErrorMessage:" + strErrorMessage);
+			
+			if (intLSDBErrorID != 0) {
+				LogUtil.logMessage("Enters into Error Loop:");
+				ErrorInfo objErrorInfo = new ErrorInfo();
+				strMessage = String.valueOf(intLSDBErrorID);
+				LogUtil.logMessage("Error message in DAO:" + strMessage);
+				
+				objErrorInfo.setMessageID(strMessage);
+				LogUtil.logMessage("Error message in ErrorInfo:"
+						+ objErrorInfo.getMessageID());
+				
+				throw new DataAccessException(objErrorInfo);
+				
+			} else if (strOracleCode != null && !"0".equals(strOracleCode)) {
+				LogUtil.logMessage("enters into oracle error code block:"
+						+ strOracleCode);
+				ErrorInfo objErrorInfo = new ErrorInfo();
+				StringBuffer objStBuffer = new StringBuffer();
+				objStBuffer.append(strOracleCode + " ");
+				objStBuffer.append(strErrorMessage);
+				objErrorInfo.setMessage(objStBuffer.toString());
+				objConnection.rollback();
+				throw new ApplicationException(objErrorInfo);
+			}
+		} catch (DataAccessException objDataExp) {
+			LogUtil
+			.logMessage("Enters into DataAccessException ModelPerfCurveDAO:modifyPerfCurveImageName");
+			ErrorInfo objErrorInfo = objDataExp.getErrorInfo();
+			LogUtil
+			.logMessage("ENters into catch block in ModelPerfCurveDAO:modifyPerfCurveImageName"
+					+ objErrorInfo.getMessageID());
+			throw new BusinessException(objDataExp, objErrorInfo);
+		} catch (ApplicationException objAppExp) {
+			LogUtil
+			.logMessage("Enters into ApplicationException ModelPerfCurveDAO:modifyPerfCurveImageName");
+			ErrorInfo objErrorInfo = objAppExp.getErrorInfo();
+			objErrorInfo.setMessage(ApplicationConstants.LOG_USER + strLogUser
+					+ "-" + objErrorInfo.getMessage());
+			LogUtil
+			.logMessage("ENters into catch block in ModelPerfCurveDAO:modifyPerfCurveImageName"
+					+ objErrorInfo.getMessage());
+			throw new ApplicationException(objAppExp, objErrorInfo);
+		}
+		
+		catch (Exception objExp) {
+			LogUtil
+			.logMessage("Enters into Exception ModelPerfCurveDAO:modifyPerfCurveImageName");
+			ErrorInfo objErrorInfo = new ErrorInfo();
+			objErrorInfo.setMessage(ApplicationConstants.LOG_USER + strLogUser
+					+ "-" + objExp.getMessage());
+			throw new ApplicationException(objExp, objErrorInfo);
+		}
+		
+		finally {
+			try {
+				
+				DBHelper.closeSQLObjects(null, objCallableStatement,
+						objConnection);
+			}
+			
+			catch (Exception objExp) {
+				LogUtil
+				.logMessage("Enters into Exception ModelPerfCurveDAO:modifyPerfCurveImageName");
+				ErrorInfo objErrorInfo = new ErrorInfo();
+				objErrorInfo.setMessage(ApplicationConstants.LOG_USER
+						+ strLogUser + "-" + objExp.getMessage());
+				throw new ApplicationException(objExp, objErrorInfo);
+			}
+			
+		}
+		
+		return intStatusCode;
+	}
+	
+	
+//	Added for CR_121 for Model Performance Curve Rearrange
+	/***************************************************************************
+	 * * * Used to save the model performance curve rearrange
+	 * @author Satyam Computer Services Ltd
+	 * @version 1.0
+	 * @param objPerformanceCurveVO
+	 *            The Object for save Performance Curve Images
+	 * @return int status of the save operation
+	 * @throws EMDException
+	 **************************************************************************/
+	
+	public static int saveRearrangedPerfCurve(
+			PerformanceCurveVO objPerformanceCurveVO) throws EMDException {
+		
+		LogUtil
+		.logMessage("Entering ModelPerfCurveDAO:saveRearrangedPerfCurve");
+		
+		Connection objConnection = null;
+		CallableStatement objCallableStatement = null;
+		String strOracleCode = null;
+		String strErrorMessage = null;
+		int intStatusCode;
+		int intLSDBErrorID = 0;
+		String strMessage = null;
+		String strLogUser = "";
+		ARRAY objArray =null;
+		ArrayDescriptor arrayDescriptor = null; 
+		try {
+			strLogUser = objPerformanceCurveVO.getUserID();
+			objConnection = DBHelper.prepareConnection();
+			objCallableStatement = objConnection
+			.prepareCall(EMDQueries.SP_REARRANGE_MDL_PERF_CURV);
+			objCallableStatement.setInt(1, objPerformanceCurveVO
+					.getModelSeqNo());
+			LogUtil
+			.logMessage("ModelSeqNo in ModelPerfCurveDAO:saveRearrangedPerfCurve:"
+					+ objPerformanceCurveVO.getModelSeqNo());
+			
+			Connection dconn = ((DelegatingConnection) objConnection).getInnermostDelegate(); //Added for CR-123 & Tomcat
+			arrayDescriptor = new ArrayDescriptor(DatabaseConstants.IN_ARRAY, dconn);
+			if(objPerformanceCurveVO.getPerfCurveList() != null )
+			{
+				objArray = new ARRAY(arrayDescriptor, dconn,objPerformanceCurveVO.getPerfCurveList());
+			}
+			else
+			{
+				LogUtil.logMessage("objPerformanceCurveVO.getPerfCurveList():null");
+				objArray = new ARRAY(arrayDescriptor, dconn, null); 
+			}
+			objCallableStatement.setArray(2,objArray);
+			
+			
+			
+			objCallableStatement
+			.setString(3, objPerformanceCurveVO.getUserID());
+			
+			objCallableStatement.registerOutParameter(4, Types.INTEGER);
+			objCallableStatement.registerOutParameter(5, Types.VARCHAR);
+			objCallableStatement.registerOutParameter(6, Types.VARCHAR);
+			
+			intStatusCode = objCallableStatement.executeUpdate();
+			
+			if (intStatusCode > 0) {
+				intStatusCode = 0;
+			}
+			
+			intLSDBErrorID = objCallableStatement.getInt(4);
+			LogUtil.logMessage("LSDBErrorID:" + intLSDBErrorID);
+			strOracleCode = objCallableStatement.getString(5);
+			LogUtil.logMessage("OracleErrorCode:" + strOracleCode);
+			strErrorMessage = (String) objCallableStatement.getString(6);
+			
+			LogUtil.logMessage("ErrorMessage:" + strErrorMessage);
+			
+			if (intLSDBErrorID != 0) {
+				LogUtil.logMessage("Enters into Error Loop:");
+				ErrorInfo objErrorInfo = new ErrorInfo();
+				strMessage = String.valueOf(intLSDBErrorID);
+				LogUtil.logMessage("Error message in DAO:" + strMessage);
+				
+				objErrorInfo.setMessageID(strMessage);
+				LogUtil.logMessage("Error message in ErrorInfo:"
+						+ objErrorInfo.getMessageID());
+				
+				throw new DataAccessException(objErrorInfo);
+				
+			} else if (strOracleCode != null && !"0".equals(strOracleCode)) {
+				LogUtil.logMessage("enters into oracle error code block:"
+						+ strOracleCode);
+				ErrorInfo objErrorInfo = new ErrorInfo();
+				StringBuffer objStBuffer = new StringBuffer();
+				objStBuffer.append(strOracleCode + " ");
+				objStBuffer.append(strErrorMessage);
+				objErrorInfo.setMessage(objStBuffer.toString());
+				objConnection.rollback();
+				throw new ApplicationException(objErrorInfo);
+			}
+		} catch (DataAccessException objDataExp) {
+			LogUtil
+			.logMessage("Enters into DataAccessException ModelPerfCurveDAO:modifyPerfCurveImageName");
+			ErrorInfo objErrorInfo = objDataExp.getErrorInfo();
+			LogUtil
+			.logMessage("ENters into catch block in ModelPerfCurveDAO:modifyPerfCurveImageName"
+					+ objErrorInfo.getMessageID());
+			throw new BusinessException(objDataExp, objErrorInfo);
+		} catch (ApplicationException objAppExp) {
+			LogUtil
+			.logMessage("Enters into ApplicationException ModelPerfCurveDAO:modifyPerfCurveImageName");
+			ErrorInfo objErrorInfo = objAppExp.getErrorInfo();
+			objErrorInfo.setMessage(ApplicationConstants.LOG_USER + strLogUser
+					+ "-" + objErrorInfo.getMessage());
+			LogUtil
+			.logMessage("ENters into catch block in ModelPerfCurveDAO:modifyPerfCurveImageName"
+					+ objErrorInfo.getMessage());
+			throw new ApplicationException(objAppExp, objErrorInfo);
+		}
+		
+		catch (Exception objExp) {
+			LogUtil
+			.logMessage("Enters into Exception ModelPerfCurveDAO:modifyPerfCurveImageName");
+			ErrorInfo objErrorInfo = new ErrorInfo();
+			objErrorInfo.setMessage(ApplicationConstants.LOG_USER + strLogUser
+					+ "-" + objExp.getMessage());
+			throw new ApplicationException(objExp, objErrorInfo);
+		}
+		
+		finally {
+			try {
+				
+				DBHelper.closeSQLObjects(null, objCallableStatement,
+						objConnection);
+			}
+			
+			catch (Exception objExp) {
+				LogUtil
+				.logMessage("Enters into Exception ModelPerfCurveDAO:modifyPerfCurveImageName");
+				ErrorInfo objErrorInfo = new ErrorInfo();
+				objErrorInfo.setMessage(ApplicationConstants.LOG_USER
+						+ strLogUser + "-" + objExp.getMessage());
+				throw new ApplicationException(objExp, objErrorInfo);
+			}
+			
+		}
+		
+		return intStatusCode;
+	}
+	
+}

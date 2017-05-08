@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+                         "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+	<context-param>
+		<param-name>RapidSpellUserDictionaryLegacyMode</param-name>
+		<param-value>true</param-value>
+		<description>
+			User Dictionary File Fix For Secure Environments
+		</description>
+	</context-param>
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>
+			com.EMD.LSDB.common.framework.EMDServlet
+		</servlet-class>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/struts-config.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>3</param-value>
+		</init-param>
+		<init-param>
+			<param-name>detail</param-name>
+			<param-value>3</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ApplicationProperty</param-name>
+			<param-value>
+				/WEB-INF/config/EmdLsdb.properties
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>TableHeaderPath</param-name>
+			<param-value>
+				/WEB-INF/config/tableheader.properties
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ErrorPath</param-name>
+			<param-value>
+				/WEB-INF/config/ErrorMessages.properties
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ServerMessageBundle</param-name>
+			<param-value>
+				/WEB-INF/config/ServerSideMessages.properties
+			</param-value>
+		</init-param>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<servlet-name>RapidSpellWebHandlerServlet</servlet-name>
+		<servlet-class>
+			com.keyoti.rapidSpell.web.ControlServlet
+		</servlet-class>
+		<init-param>
+			<param-name>licenseKey</param-name>
+			<param-value>
+				40474340444C43484C464A4B502439403C393D453C41453F4344493
+			</param-value>
+		</init-param>
+   </servlet>
+		
+   <servlet-mapping>
+      <servlet-name>action</servlet-name>
+      <url-pattern>*.do</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+      <servlet-name>RapidSpellWebHandlerServlet</servlet-name>
+	  <url-pattern>*.rapidspellweb</url-pattern>
+   </servlet-mapping>  
+
+	<session-config>
+	<session-timeout>-1</session-timeout>
+	</session-config>
+	
+	 <!-- Added for CR-122 -->
+	<mime-mapping>
+		<extension>css</extension>
+		<mime-type>text/css</mime-type>
+	</mime-mapping>
+   <!-- Added for CR-122 Ends Here-->
+
+	<welcome-file-list>
+	<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+    <env-entry>
+	  <description>DEBUG</description>
+	  <env-entry-name>SUPPRESSDEBUG</env-entry-name>
+	  <env-entry-value>True</env-entry-value>
+	  <env-entry-type>java.lang.String</env-entry-type>
+	 </env-entry> 
+	 <env-entry>
+ 		<description>Header Information</description>
+		<env-entry-name>HEADER_ENV_INFO</env-entry-name>
+		<env-entry-value>LSDB QA - </env-entry-value>
+		<env-entry-type>java.lang.String</env-entry-type>
+	 </env-entry> 
+	<env-entry>
+	  <description>LOG4J URL</description>
+	  <env-entry-name>LOG4J_URL</env-entry-name>
+	  <env-entry-value>/WEB-INF/config/log4j.properties</env-entry-value>
+	  <env-entry-type>java.lang.String</env-entry-type>
+	 </env-entry>
+	 <env-entry>
+	  <description>WEBLOGIC FACTORY</description>
+	  <env-entry-name>CONTEXT_FACTORY</env-entry-name>
+	  <env-entry-value>weblogic.jndi.WLInitialContextFactory</env-entry-value>
+	  <env-entry-type>java.lang.String</env-entry-type>
+	 </env-entry>
+     <env-entry>
+      <description>JNDI NAME</description>
+      <env-entry-name>JNDI_NAME</env-entry-name>
+      <env-entry-value>EMD JNDI</env-entry-value>
+      <env-entry-type>java.lang.String</env-entry-type>
+	 </env-entry> 
+ 	 <env-entry>
+	  <description>URL NAME</description>
+	  <env-entry-name>PROVIDER_URL_VALUE</env-entry-name>
+	  <env-entry-value>t3://localhost:7001</env-entry-value>
+	  <env-entry-type>java.lang.String</env-entry-type>
+	</env-entry>
+
+
+</web-app>
+

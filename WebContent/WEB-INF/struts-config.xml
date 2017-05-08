@@ -1,0 +1,1481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+	<data-sources />
+	<form-beans>
+		<form-bean name="LoginForm"
+			type="com.EMD.LSDB.form.common.LoginForm" />
+		<form-bean name="ChangePwdForm"
+			type="com.EMD.LSDB.form.common.ChangePwdForm" />
+		<form-bean name="ResetPasswordForm"
+			type="com.EMD.LSDB.form.admn.ResetPasswordForm" />
+		<!-- =========================== Login Form Entries Ends =========================== -->
+
+		<!-- ========================= spec Maintenance Forms Entries Begin =========================== -->
+
+		<form-bean name="MainFeatureForm"
+			type="com.EMD.LSDB.form.SpecMaintenance.MainFeatureInfoForm" />
+		<form-bean name="OrderSectionForm"
+			type="com.EMD.LSDB.form.SpecMaintenance.OrderSectionForm" />
+		<form-bean name="OrderGenArrangeForm"
+			type="com.EMD.LSDB.form.SpecMaintenance.OrderGenArrangeForm" />
+		<form-bean name="OrderSectionPopUpForm"
+			type="com.EMD.LSDB.form.SpecMaintenance.OrderSectionPopUpForm" />
+
+		<form-bean name="ViewSpecByOrderForm"
+			type="com.EMD.LSDB.form.SpecMaintenance.ViewSpecByOrderForm" />
+
+
+		<!-- =========================== spec Maintenance Forms Entries Ends =========================== -->
+		<!-- =========================== spec Supplement Forms Entries Begins =========================== -->
+		<form-bean name="SpecSupplementForm"
+			type="com.EMD.LSDB.form.SpecSupplement.SpecSupplementForm" />
+		<!-- =========================== spec Supplement Forms Entries Ends =========================== -->
+
+		<!-- =========================== <MasterMaintenance Forms Entries Begin =========================== -->
+
+		<form-bean name="SectionMaintenanceForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.SecMaintForm" />
+
+		<form-bean name="ModelGenArrangeForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.ModelGenArrangeForm" />
+
+		<form-bean name="ModelMaintForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.ModelMaintForm" />
+
+		<form-bean name="ModelSpecificationForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.ModelSpecificationForm" />
+
+		<form-bean name="ModAddClauseRevForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.ModelAddClauseRevForm" />
+
+		<!-- SpecTypeMaintForm  Maintenance - Start -->
+		<form-bean name="SpecTypeMaintForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.SpecTypeMaintForm">
+		</form-bean>
+		<!-- SpecTypeMaintForm  Maintenance - End -->
+
+		<form-bean name="AcceptRejectNewClauseForm"
+			type="com.EMD.LSDB.form.SpecMaintenance.AcceptRejectNewClauseForm" />
+
+		<!-- Distributor Maintenance - Start -->
+		<form-bean name="DistMaintForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.DistMaintForm">
+		</form-bean>
+		<!-- Distributor Maintenance - End -->
+
+		<!-- Component Maintenance - Start -->
+		<form-bean name="CompMaintForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.CompMaintForm">
+		</form-bean>
+		<!-- Component Maintenance - End -->
+
+		<!-- Component Mapping Maintenance - Start -->
+		<form-bean name="CompMapMaintForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.CompMapMaintForm">
+		</form-bean>
+		<!-- Component Mapping Maintenance - End -->
+
+		<!-- Sub Section - Start -->
+		<form-bean name="SubSecMaintForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.SubSecMaintForm">
+		</form-bean>
+		<!--  Sub Section - End -->
+
+		<!-- Customer - Start -->
+		<form-bean name="CustMaintForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.CustMaintForm">
+		</form-bean>
+		<!-- Customer - End -->
+		<!-- Component Group - Start -->
+		<form-bean name="CompGroupMaintForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.CompGroupMaintForm">
+		</form-bean>
+		<!-- Component Group - End -->
+
+		<!-- Performance Curve - Start -->
+		<form-bean name="ModelPerformanceveForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.ModelPerfCurveForm">
+		</form-bean>
+		<!-- Performance Curve - End -->
+
+		<!-- LSDB_CR-38 Starts-->
+		<form-bean name="EngineeringDataForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.EngineeringDataForm">
+		</form-bean>
+
+		<!-- LSDB_CR-38 Ends-->
+
+		<!-- Master Spec By Model Report - Starts Here -->
+		<form-bean name="MasterSpecByMdlForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.MasterSpecByMdlForm" />
+		<!-- Master Spec By Model Report - Endss Here -->
+
+		<!--Order Specification - Start -->
+		<form-bean name="OrderSpecificationForm"
+			type="com.EMD.LSDB.form.SpecMaintenance.OrderSpecificationForm">
+		</form-bean>
+		<!--Order Specification - End -->
+
+		<!--Create Spec - Start -->
+		<form-bean name="CreateSpecForm"
+			type="com.EMD.LSDB.form.SpecMaintenance.CreateSpecForm">
+		</form-bean>
+		<!--Create Spec - End -->
+
+		<!-- Modify Spec - Start -->
+		<form-bean name="ModifySpecForm"
+			type="com.EMD.LSDB.form.SpecMaintenance.ModifySpecForm">
+		</form-bean>
+		<!-- Modify Spec - End -->
+
+		<!-- Delete Spec - Start -->
+		<form-bean name="DeleteSpecForm"
+			type="com.EMD.LSDB.form.SpecMaintenance.DeleteSpecForm">
+		</form-bean>
+		<!-- Delete Spec - End -->
+
+		<!-- Copy Spec - Start -->
+		<form-bean name="CopySpecForm"
+			type="com.EMD.LSDB.form.SpecMaintenance.CopySpecForm">
+		</form-bean>
+		<!-- Copy Spec - End -->
+
+		<!--  Select Clause Revision Model - Start -->
+		<form-bean name="ModelSelectClauseRevForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.ModelSelectClauseRevForm">
+		</form-bean>
+		<!--  Select Clause Revision model -End -->
+
+		<!--  Search Clause Pop Up - Start -->
+		<form-bean name="SearchClausePopUpForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.SearchClausePopUpForm">
+		</form-bean>
+		<!--  Search Clause Pop up - End -->
+
+		<!-- ModelAddClause - Start -->
+		<form-bean name="ModelAddClauseForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.ModelAddClauseForm">
+		</form-bean>
+		<!-- ModelAddClause - End -->
+
+		<!--  Parent Clause Clause Pop Up - Start -->
+		<form-bean name="ParentClauseForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.ParentClauseForm">
+		</form-bean>
+		<!--  Parent Clause Clause Pop Up - End -->
+
+		<!--  Part Of  Pop Up - Start -->
+		<form-bean name="PartOfForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.PartOfForm">
+		</form-bean>
+		<!--  Part Of Pop Up - End -->
+
+		<!--  Comp Search Pop Up - Starts -->
+		<form-bean name="CompSearchForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.CompSearchForm">
+		</form-bean>
+
+		<!-- Comp Search Pop Up - End -->
+
+
+		<!--  Clause Desc Pop Up - Starts -->
+		<form-bean name="ModelClauseDescPopUpForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.ModelClauseDescPopUpForm">
+		</form-bean>
+
+
+
+		<!-- char Clause Desc Pop Up - End -->
+
+		<!-- Model Ind Accept Reject Clause Change-Start -->
+		<form-bean name="AcceptRejectClauseForm"
+			type="com.EMD.LSDB.form.SpecMaintenance.AcceptRejectClauseForm">
+		</form-bean>
+		<!-- Model Ind Accept Reject Clause Change - End -->
+
+		<!-- Order Add Clause - Start -->
+		<form-bean name="AddClauseOrderForm"
+			type="com.EMD.LSDB.form.SpecMaintenance.AddClauseOrderForm">
+		</form-bean>
+		<!-- Order Add Clause - End -->
+
+		<!-- Order Add Clause Part Of Pop UP- Start -->
+		<form-bean name="OrderClausePartOfPopUpForm"
+			type="com.EMD.LSDB.form.SpecMaintenance.OrderClausePartOfPopUpForm">
+		</form-bean>
+		<!-- Order Add Clause Part Of Pop UP- End -->
+
+		<!--  Comp Search Pop Up - Add Clause At Order - Starts -->
+		<form-bean name="OrderCompSearchForm"
+			type="com.EMD.LSDB.form.SpecMaintenance.OrderCompSearchForm">
+		</form-bean>
+
+		<!-- Comp Search Pop Up - Add Clause At Order - End -->
+
+		<!-- Order Perf Curve - Start -->
+		<form-bean name="OrderPerfCurveForm"
+			type="com.EMD.LSDB.form.SpecMaintenance.OrderPerfCurveForm">
+		</form-bean>
+		<!-- Order Perf Curve - End -->
+		<!-- Master Maintanence Report Start -->
+		<form-bean name="MasterMaintForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.MasterMaintReportForm">
+		</form-bean>
+		<!-- Master Maintanence Report End -->
+
+		<!-- =========================== <Spec Comparions Forms Entries Begin =========================== -->
+		<form-bean name="ClauseCompareForm"
+			type="com.EMD.LSDB.form.SpecComparison.ClauseCompareForm" />
+
+		<form-bean name="ComponentCompareForm"
+			type="com.EMD.LSDB.form.SpecComparison.ComponentCompareForm" />
+
+		<!-- =========================== <Spec Comparison Forms Entries End =========================== -->
+
+		<!-- History - Starts Here -->
+		<form-bean name="HistoryForm"
+			type="com.EMD.LSDB.form.History.HistoryForm" />
+		<form-bean name="HistoryEdlPopUpForm"
+			type="com.EMD.LSDB.form.History.HistoryEdlPopUpForm" />
+		<!-- History - Ends Here -->
+
+		<!-- Addclause Revision for order level-->
+
+		<form-bean name="ClauseRevForm"
+			type="com.EMD.LSDB.form.SpecMaintenance.AddClauseRevForm" />
+		<form-bean name="AddSubClauseForm"
+			type="com.EMD.LSDB.form.SpecMaintenance.AddSubClauseForm" />
+
+		<!-- Administration - Starts here -->
+		<form-bean name="UserMaintForm"
+			type="com.EMD.LSDB.form.admn.UserMaintForm" />
+
+		<form-bean name="ResetSpecForm"
+			type="com.EMD.LSDB.form.admn.ResetSpecForm" />
+
+		<!-- Administration - Ends here-->
+
+		<!-- Form Entries for Appendix Section(LSDB_CR-42) - Starts here -->
+
+		<form-bean name="AppendixForm"
+			type="com.EMD.LSDB.form.SpecMaintenance.AppendixForm" />
+		<!-- Appendix Section(LSDB_CR-42) - Ends here-->
+
+
+		<!-- Added for CR-42 Model Appendix Maintenance - Starts here -->
+		<form-bean name="ModelAppendixForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.ModelAppendixForm" />
+		<!-- Added for CR-42 Model Appendix Maintenance - Ends here-->
+
+		<!-- Added for LSDB_CR-45-->
+		<form-bean name="CreateRequestForm"
+			type="com.EMD.LSDB.form.CRForm.CreateRequestForm" />
+		<form-bean name="ComponentGroupRequestForm"
+			type="com.EMD.LSDB.form.CRForm.ComponentGroupRequestForm" />
+
+		<!-- CR forms Modify Request ID Begin  -->
+		<form-bean name="ModifyChangeRequestForm"
+			type="com.EMD.LSDB.form.CRForm.ModifyChangeRequestForm">
+		</form-bean>
+
+		<form-bean name="CreateChangeClauseRequestForm"
+			type="com.EMD.LSDB.form.CRForm.CreateChangeClauseRequestForm" />
+
+		<form-bean name="PreviewRequestForm"
+			type="com.EMD.LSDB.form.CRForm.PreviewRequestForm" />
+		<!-- Added for CR-45  - Ends here-->
+
+		<!-- Added For CR-81  - Begins  -->
+		<form-bean name="ModelAssignEdlForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.ModelAssignEdlForm" />
+		<!-- Added for CR-81  - Ends here-->
+
+		<!-- Added For CR_99 - Begins -->
+		<form-bean name="RegenerateSpecForm"
+			type="com.EMD.LSDB.form.admn.RegenerateSpecForm" />
+		<!-- Added For CR_99 - Ends  -->
+		
+		<!-- Added For CR_100 - Begins -->
+		<form-bean name="SuggestForm"
+			type="com.EMD.LSDB.form.Suggestions.SuggestForm" />
+		<!-- Added For CR_100 - Ends  -->
+		
+		<!-- Added For CR_101 - Begins -->
+		<form-bean name="RevisionChangesForm"
+			type="com.EMD.LSDB.form.History.RevisionChangesForm" />
+		<!-- Added For CR_101 - Ends  -->
+		
+		<!-- Added For CR_106 - Begins  ModelGenInfoTexMaintenanceForm-->
+		<form-bean name="MdlGenInfoTexMaintForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.MdlGenInfoTexMaintForm" />
+		<!-- Added For CR_106 - Ends  -->
+		
+		<!-- Added for CR_106 - On demand Spec Supplement -->
+		<form-bean name="OndemandSpecSupplementForm"
+			type="com.EMD.LSDB.form.SpecComparison.OndemandSpecSupplementForm" />
+		<!-- Added For CR_106 - Ends  -->
+
+		<!-- Added for CR_108 - Order Specific Clause Report -->
+		<form-bean name="OrderSpecificClauseForm" 
+			type="com.EMD.LSDB.form.SpecMaintenance.OrderSpecificClauseForm"/>
+		<!-- Added For CR_108 - Ends  --> 
+
+		<!-- Added for CR_109 - Clauses By Components Report -->
+		<form-bean name="ClaByCompsForm" 
+			type="com.EMD.LSDB.form.MasterMaintenance.ClaByCompsForm"/>
+		<!-- Added For CR_109 - Ends  --> 
+<!-- Added for CR_110 Starts here -->
+  <form-bean name="ChangeRequest1058Form" type="com.EMD.LSDB.form.cr1058.ChangeRequest1058Form"/>
+  <form-bean name="SearchRequest1058Form" type="com.EMD.LSDB.form.cr1058.SearchRequest1058Form"/>
+  <!-- Added for CR_110 Ends here -->
+<!-- Added for CR-114 by vb106565 starts here  -->
+<form-bean name="CustOptCatForm"
+			type="com.EMD.LSDB.form.MasterMaintenance.CustOptCatForm">
+		</form-bean>
+<!-- Added for CR-114 by vb106565 ends here  -->
+
+	</form-beans>
+
+
+
+	<global-exceptions>
+		<exception key="error.required" path="/jsp/common/errorPage.jsp"
+			type="com.EMD.LSDB.common.exceptions.EMDException"
+			handler="com.EMD.LSDB.common.exceptions.EMDExceptionHandler" />
+
+	</global-exceptions>
+
+	<global-forwards>
+		<!-- =========================== GlobalException Configuration Ends Here =========================== -->
+		<forward name="NotAuthorised" path="Authorization.Layout" />
+		<forward name="failure" path="Error.Layout"></forward>
+		<forward name="Blocked" path="Session.Layout" />
+		<!-- =========================== GlobalForwards Configuration Starts Here =========================== -->
+
+	</global-forwards>
+
+
+	<action-mappings>
+		<action path="/Login"
+			type="org.apache.struts.actions.ForwardAction"
+			parameter="login.layout" />
+
+
+		<action name="LoginForm"
+			type="com.EMD.LSDB.action.common.LoginAction" path="/LoginAction"
+			scope="session" input="main.layout" validate="true"
+			parameter="method">
+			<forward name="success" path="Welcome.Layout"></forward>
+			<forward name="failure" path="login.layout"></forward>
+			<forward name="changePswd" path="/jsp/common/ChangePwd1.jsp"></forward> <!-- Added for CR-134 -->
+			<forward name="errorpage" path="/jsp/common/error.jsp"></forward>
+		</action>
+
+		<action name="ChangePwdForm"
+			type="com.EMD.LSDB.action.common.ChangePwdAction"
+			path="/ChangePassword" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="ChangePwd.Layout"></forward>
+		</action>
+
+		<action name="SectionMaintenanceForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.SecMaintAction"
+			path="/SectionMaintenance" scope="request"
+			input="SectionMaintenance.Layout" validate="true"
+			parameter="method">
+			<forward name="success" path="SectionMaintenance.Layout"></forward>
+		</action>
+
+		<action name="SpecTypeMaintForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.SpecTypeMaintenanceAction"
+			path="/SpecTypeAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="SpecTypeMaint.Layout"></forward>
+		</action>
+
+		<action name="ModAddClauseRevForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.ModelAddClauseRevAction"
+			path="/ModAddClauseRev" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="ModAddClauseRev.Layout"></forward>
+		</action>
+
+
+
+		<action name="ModelGenArrangeForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.ModelGenArrangeAction"
+			path="/GenArrByModel" scope="request" input="GenArrByModel.Layout"
+			validate="true" parameter="method">
+			<forward name="success" path="GenArrByModel.Layout"></forward>
+		</action>
+
+
+		<action name="ModelMaintForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.ModelMaintAction"
+			path="/ModelAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="Model.Layout"></forward>
+		</action>
+
+		<action input="main.layout" name="ModelMaintForm"
+			parameter="method" path="/CopyModelAction" scope="request"
+			type="com.EMD.LSDB.action.MasterMaintenance.ModelMaintAction"
+			validate="true">
+			<forward name="success" path="CopyModel.Layout" />
+		</action>
+
+		<!-- Distributor Maintenance - Start -->
+		<action name="DistMaintForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.DistMaintAction"
+			path="/DistAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="Distributor.Layout"></forward>
+			<forward name="image" path="DistLogo.Layout"></forward>
+		</action>
+		<!-- Distributor Maintenance - End -->
+
+		<!-- Component Maintenance - Start -->
+		<action name="CompMaintForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.CompMaintAction"
+			path="/CompAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="Component.Layout"></forward>
+		</action>
+		<!-- Component Maintenance - End -->
+
+		<!-- Component Mapping Maintenance - Start -->
+		<action name="CompMapMaintForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.CompMapMaintAction"
+			path="/CompMapAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="ComponentMap.Layout"></forward>
+			<forward name="UNMAPCOMPONENT"
+				path="UnmapComponentGroup.Layout">
+			</forward>
+			<!--  Added For CR_93  -->
+			<forward name="CopyOrderComponent"
+				path="CopyOrderComp.Layout">
+			</forward>
+		</action>
+		<!-- Component Mapping Maintenance - End -->
+
+		<action name="ModelSpecificationForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.ModelSpecificationAction"
+			path="/ModelSpecificationAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success"
+				path="ModelSpecificationHome.Layout">
+			</forward>
+			<forward name="specification" path="Specification.Layout"></forward>
+			<forward name="specificationitem"
+				path="SpecificationItem.Layout">
+			</forward>
+			<forward name="modelspecmodify"
+				path="ModifySpecByModel.Layout">
+			</forward>
+		</action>
+
+		<!-- Sub Section Maintenance - Start -->
+		<action name="SubSecMaintForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.SubSecMaintAction"
+			path="/SubSectionAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="SubSection.Layout"></forward>
+		</action>
+		<!-- Sub Section maintenance - End -->
+
+		<!-- Customer Maintenance - Start -->
+		<action name="CustMaintForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.CustMaintAction"
+			path="/CustAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="Customer.Layout"></forward>
+			<forward name="image" path="CustLogo.Layout"></forward>
+		</action>
+		<!-- Customer Maintenance - End -->
+
+		<!-- Component Group Maintenance - Start -->
+		<action name="CompGroupMaintForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.CompGroupMaintAction"
+			path="/CompGroupAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="ComponentGroup.Layout"></forward>
+			<forward name="compreport" path="CompGrpReport.Layout"></forward>
+			<!--  Added for CR-26 Component Group Component Report-->
+			<forward name="compgrpexcel" path="CompGrpReportExcel.Layout">
+			</forward>
+			<!--  Added for CR-26 Component Group Component Report-->
+			<!--  Added for CR_108 Components In Order Report-->
+			<forward name="compinorderreport" path="CompInOrder.Layout"></forward>
+			<forward name="compinorderexcel" path="CompInOrder.Layout"></forward><!--  Edited for CR-130-->
+			<!--  Added for CR_108 Components In Order Report - Ends here -->
+			<!-- Added for CR_121 -->
+			<forward name="viewcompinordermapreport" path="/jsp/MasterMaintenance/ViewCompInOrderMapReport.jsp"></forward>
+			<!-- Added for CR_121 ends here-->
+		</action>
+		<!-- Component Group - End -->
+
+		<!-- Performance Curve - Start -->
+		<action name="ModelPerformanceveForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.ModelPerfCurveAction"
+			path="/PerfCurveModelAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="PerfCurveModel.Layout"></forward>
+		</action>
+
+		<action name="ModelPerformanceveForm"
+			type="com.EMD.LSDB.common.fileupload.action.DownloadImageAction"
+			path="/DownLoadImage" scope="request" input="PerfCurveModel.Layout"
+			validate="true" parameter="method">
+
+		</action>
+		<!-- Performance Curve - End -->
+
+
+		<!-- LSDB_CR-38(EngineeringData - Maintenance) Added on 14-April-08-->
+		<action name="EngineeringDataForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.EngineeringDataAction"
+			path="/EnggDataMaintenance" scope="request" input="main.Layout"
+			validate="true" parameter="method">
+			<forward name="success" path="EnggDataMaint.Layout"></forward>
+
+		</action>
+		<!-- LSDB_CR-38(EngineeringData - Maintenance) Entries Ends Here-->
+
+		<!-- Master Spec By Model - Starts Here -->
+
+		<action name="MasterSpecByMdlForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.MasterSpecByMdlAction"
+			path="/MasterSpecByMdlAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="NewMasterSpecReport.Layout"></forward>
+		</action>
+
+		<action name="MasterSpecByMdlForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.MasterSpecByMdlAction"
+			path="/MasterSpecByMdlReport" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success"
+				path="MasterSpecByModelReport.Layout">
+			</forward>
+		</action>
+
+		<action name="MasterSpecByMdlForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.MasterSpecByMdlAction"
+			path="/MasterSpecByMdlExcel" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success"
+				path="MasterSpecByModelExcelReport.Layout">
+			</forward>
+		</action>
+
+		<!--  Added for CR_81 to view  characteristic group report start here -->
+		<action name="MasterSpecByMdlForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.MasterSpecByMdlAction"
+			path="/ViewCharGrpByMdlReport" scope="request" input="main.layout"
+			validate="true" parameter="method">
+
+			<forward name="chargrprptSuccess"
+				path="ViewCharGrpByModelReport.Layout">
+			</forward>
+
+		</action>
+
+		<action name="MasterSpecByMdlForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.MasterSpecByMdlAction"
+			path="/ViewCharGrpByMdlExcel" scope="request" input="main.layout"
+			validate="true" parameter="method">
+
+			<forward name="chargrprptSuccess"
+				path="ViewCharGrpByModelExcelReport.Layout">
+			</forward>
+		</action>
+		<!--  ends here for CR_81  -->
+
+		<!-- Added for LSDB_CR-77 -->
+		<action name="MasterSpecByMdlForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.MasterSpecByMdlAction"
+			path="/CustomerOptionCatalog" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success"
+				path="CustomerOptionCatalog.Layout">
+			</forward>
+		</action>
+
+
+		<!-- Master Spec By Model - Ends Here -->
+
+
+		<!-- Order Spec Maintenance - Start -->
+		<action name="OrderSpecificationForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.OrderSpecificationAction"
+			path="/OrderSpecAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="OrderSpecification.Layout"></forward>
+			<forward name="orderspecitem"
+				path="AddSpecItemByOrder.Layout">
+			</forward>
+			<forward name="orderspec" path="AddSpecByOrder.Layout"></forward>
+			<forward name="orderspecmodify"
+				path="ModifySpecByOrder.Layout">
+			</forward>
+		</action>
+		<!-- Order Spec Maintenance - End -->
+
+
+
+		<!-- Select Clause Revision - Start -->
+		<action name="ModelSelectClauseRevForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.ModelSelectClauseRevAction"
+			path="/ModelSelectClauseAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success"
+				path="SelectClauseRevModel.Layout">
+			</forward>
+		</action>
+		<!--  Select Clause Revision - End -->
+
+		<!-- Search  Clause Pop Up - Start -->
+		<action name="SearchClausePopUpForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.SearchClausePopUpAction"
+			path="/ClauseSearchAction" scope="request"
+			input="SelectClauseRevModel.Layout" validate="true"
+			parameter="method">
+			<forward name="success" path="SearchClausePopUp.Layout"></forward>
+		</action>
+		<!--  Search Clause Pop Up - End -->
+
+
+		<!-- GenArrange Maintenance -Starts -->
+		<action name="ModelGenArrangeForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.ModelGenArrangeAction"
+			path="/GenArrByModel" scope="request" input="GenArrByModel.Layout"
+			validate="true" parameter="method">
+			<forward name="success" path="GenArrByModel.Layout"></forward>
+			<forward name="failure" path="Error.Layout" />
+		</action>
+		<action name="ModelGenArrangeForm"
+			type="com.EMD.LSDB.common.fileupload.action.DownloadImageAction"
+			path="/DownLoadImage" scope="request" input="GenArrByModel.Layout"
+			validate="true" parameter="method" />
+
+		<!-- ==============Action Mappings For Spec Supplement Starts Here=========================== -->
+
+
+		<action name="CreateSpecForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.CreateSpecAction"
+			path="/CreateSpecAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="CreateSpec.Layout"></forward>
+		</action>
+
+		<!-- Modify Spec - Start -->
+		<action name="ModifySpecForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.ModifySpecAction"
+			path="/ModifySpecAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="ModifySpec.Layout"></forward>
+		</action>
+		<!-- Modify Spec - End -->
+
+		<!-- Delete Spec - Start-->
+		<action name="DeleteSpecForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.DeleteSpecAction"
+			path="/DeleteSpecAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="DeleteSpec.Layout"></forward>
+		</action>
+		<!-- Delete Spec - End -->
+
+		<!-- Copy Spec - Start -->
+		<action name="CopySpecForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.CopySpecAction"
+			path="/CopySpecAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="CopySpec.Layout"></forward>
+		</action>
+		<!-- Copy Spec - End -->
+
+		<action name="MainFeatureForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.MainFeatureInfoAction"
+			path="/MainFeatureInfo" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="MainFeature.Layout"></forward>
+			<forward name="AddCompInfo" path="AddCompInfo.Layout"></forward>
+		</action>
+
+		<action name="OrderSectionForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.OrderSectionAction"
+			path="/OrderSection" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success"
+				path="/jsp/SpecMaintenance/SectionDisplay.jsp">
+			</forward>
+			<forward name="sectionview" path="SectionView.Layout"></forward>
+			<forward name="reloadspec" path="/MainFeatureInfo.do"></forward>
+			<forward name="publishsuccess"
+				path="PublishSuccess.Layout">
+			</forward>
+			<forward name="displayreason" path="DisplayReason.Layout"></forward>
+			<forward name="FetchCharCombntnEDLMap"
+				path="/jsp/SpecMaintenance/CharGrpCombntnList.jsp">
+			</forward>
+
+
+			<forward name="servermessage" path="/OrderSection.do"></forward>
+			<!-- Added for CR_92 Starts Here-->
+			<forward name="deletedClausesHistory"
+				path="deletedClausesHistory.Layout">
+			</forward>
+			<!-- Added for CR_92 Ends Here-->
+			<!-- Added for CR_113 Starts Here-->
+			<forward name="ClausesWithIndicators"
+				path="ClausesWithIndicators.Layout">
+			</forward>
+			<!-- Added for CR_113 Ends Here-->
+		</action>
+
+		<action name="OrderGenArrangeForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.OrderGenArrangeAction"
+			path="/orderGenArrangeAction" scope="request"
+			input="GenArrByOrder.layout" validate="true" parameter="method">
+			<forward name="success" path="GenArrByOrder.Layout"></forward>
+			<forward name="failure" path="Error.Layout"></forward>
+		</action>
+
+
+
+		<action name="OrderPerfCurveForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.OrderPerfCurveAction"
+			path="/orderPerfCurveAction" scope="request"
+			input="OrderPerfCurve.Layout" validate="true" parameter="method">
+			<forward name="success" path="OrderPerfCurve.Layout"></forward>
+			<forward name="failure" path="Error.Layout"></forward>
+		</action>
+
+		<action name="OrderSectionPopUpForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.OrderPartofPopUpAction"
+			path="/OrderPartofPopUpAction" scope="request"
+			input="OrderPartofPopUp.Layout" validate="true" parameter="method">
+			<forward name="success" path="OrderPartofPopUp.Layout"></forward>
+			<forward name="OrderSectionPopUp"
+				path="OrderPartofPopUp.Layout">
+			</forward>
+			<forward name="failure" path="Error.Layout"></forward>
+		</action>
+
+
+
+		<!-- ==============Action Mappings For Spec Supplement Ends Here=========================== -->
+
+		<!-- ==============Action Mappings For Model Add Clause Starts Here=========================== -->
+
+		<!-- ModelAddClause - Start -->
+		<!-- Modified for CR-83 -->
+		<action name="ModelAddClauseForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.ModelAddClauseAction"
+			path="/modelAddClauseAction" scope="request"
+			input="AddModifyClause.Layout" validate="true" parameter="method">
+			<forward name="success" path="AddModifyClause.Layout"></forward>
+			<!-- CR_85 added line -->
+			<forward name="FetchCharCombntnEDLMap"
+				path="UnlinkCharGrpCombntnList.Layout">
+			</forward>
+			<forward name="parentClauseOpen"
+				path="LoadParentClauseByModel.Layout">
+			</forward>
+			<!-- Added for CR_113 - Clause in Orders Report -->
+			<forward name="clainordersreport" path="ClaInOrdersReport.Layout"/>	
+			<forward name="clainordersreportexcel" path="ClaInOrdersReportExcel.Layout"/>	
+ 		  	<!-- Added for CR_113 - Ends here-->
+
+			<forward name="failure" path="Error.Layout"></forward>
+		</action>
+		<!-- ModelAddClause - Ends -->
+
+		<!--  Parent Clause Clause Pop Up - Starts -->
+
+		<action name="ParentClauseForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.ParentClauseSearchAction"
+			path="/parentClauseSearchAction" scope="request"
+			input="LoadParentClauseByModel.Layout" validate="true"
+			parameter="method">
+			<forward name="parentClauseOpen"
+				path="LoadParentClauseByModel.Layout">
+			</forward>
+			<forward name="failure" path="Error.Layout"></forward>
+		</action>
+
+		<!--  Parent Clause Clause Pop Up - End -->
+
+		<!--  Part Of  Pop Up - Start -->
+
+		<action name="PartOfForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.PartOfAction"
+			path="/partOfAction" scope="request"
+			input="LoadAllClausesByModel.Layout" validate="true"
+			parameter="method">
+			<forward name="success"
+				path="LoadAllClausesByModel.Layout">
+			</forward>
+			<forward name="failure" path="Error.Layout"></forward>
+		</action>
+
+		<!--  Part Of  Pop Up - Ends -->
+
+		<!--  Component  Pop Up - Start -->
+		<action name="CompSearchForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.CompSearchAction"
+			path="/compSearchAction" scope="request" input="CompChar.Layout"
+			validate="true" parameter="method">
+			<forward name="success" path="CompChar.Layout"></forward>
+			<forward name="failure" path="Error.Layout"></forward>
+		</action>
+
+		<!--  Component  Pop Up - Ends -->
+
+
+		<!--  Clause Desc Pop Up - Starts -->
+		<action name="ModelClauseDescPopUpForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.ModelClauseDescPopUpAction"
+			path="/modelClauseDescPopupAction" scope="request"
+			input="ModelClauseDescPopUp.Layout" validate="true"
+			parameter="method">
+			<forward name="success"
+				path="ModelClauseDescPopUp.Layout">
+			</forward>
+			<forward name="popupsuccess"
+				path="ModelCharClauseDescPopUp.Layout">
+			</forward>
+			<!-- Added for CR_85 -->
+			<forward name="closepopup"
+				path="CharGrpCombntnLisNotMaptByModelPopUp.Layout">
+			</forward>
+			<!-- Added for CR_92 -->
+			<forward name="ViewMapClause"
+				path="ViewClauseMapping.Layout">
+			</forward>
+			<!-- Ends here -->
+			<!-- <forward name="fetchcharcombntnSuccess"  path="CharGrpCombntnListByModelPopUp.Layout"></forward>-->
+
+
+
+
+			<forward name="failure" path="Error.Layout"></forward>
+		</action>
+
+		<!--  Clause Desc Pop Up - Ends -->
+
+
+
+
+
+		<!--  Added For CR-81 - Starts -->
+		<action name="ModelAssignEdlForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.ModelAssignEdlAction"
+			path="/ModelAssignEdlAction" scope="request" input="main.Layout"
+			validate="true" parameter="method">
+			<forward name="success" path="ModAssignEdl.Layout"></forward>
+			<forward name="viewunlinkclause"
+				path="ViewUnlinkClause.Layout">
+			</forward>			
+			<forward name="unlinkclause"
+				path="ViewUnlinkClause.Layout">
+			</forward>
+			<forward name="failure" path="Error.Layout"></forward>
+		</action>
+
+		<action name="AcceptRejectClauseForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.EdlIndAcceptRejectAction"
+			path="/EdlIndAcceptRejectAction" scope="request" input="main.Layout"
+			validate="true" parameter="method">
+			<forward name="success"
+				path="EdlIndAcceptRejectAction.Layout">
+			</forward>
+			<forward name="failure" path="Error.Layout"></forward>
+		</action>
+		<!--  Added For CR-81 - Ends -->
+
+
+		<!-- ==============Action Mappings For Model Add Clause Ends Here=========================== -->
+
+		<!--  Model Ind Accept Reject Clause Change-Start -->
+		<action name="AcceptRejectClauseForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.ModelIndAcceptRejectClauseAction"
+			path="/ModelIndAcceptRejectClauseAction" scope="request"
+			input="main.layout" validate="true" parameter="method">
+			<forward name="success"
+				path="ModelIndAcceptRejectClause.Layout">
+			</forward>
+		</action>
+		<!--  Model Ind Accept Reject Clause Change - End -->
+
+		<!-- Copy Ind Accept Reject Clause Change-Start -->
+		<action name="AcceptRejectClauseForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.CopyIndAcceptRejectClauseAction"
+			path="/CopyIndAcceptRejectClauseAction" scope="request"
+			input="main.layout" validate="true" parameter="method">
+			<forward name="success"
+				path="CopyIndAcceptRejectClause.Layout">
+			</forward>
+		</action>
+		<!--  CopyInd Accept Reject Clause Change - End -->
+		<!-- Revise Clause - Start -->
+		<action name="AcceptRejectClauseForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.OrderSelectClauseRevAction"
+			path="/OrderSelClauseRevAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success"
+				path="OrderSelectClauseRev.Layout">
+			</forward>
+		</action>
+		<!-- Revise Clause - End -->
+
+		<!-- ==============Action Mappings For Order Add Clause Starts Here=========================== -->
+		<action name="AddClauseOrderForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.AddClauseOrderAction"
+			path="/orderAddClauseAction" scope="request" input="main.Layout"
+			validate="true" parameter="method">
+			<forward name="success" path="AddClauseOrder.Layout"></forward>
+
+			<forward name="failure" path="Error.Layout"></forward>
+			<!-- Added for CR-68 Order New Component -->
+			<forward name="OrderNewComp"
+				path="AddOrderComponent.Layout">
+			</forward>
+			<!-- Added for CR-109 Loading Component from Multiple Models -->
+			<forward name="LoadAllComp" path="LoadAllComponent.Layout"/>
+		</action>
+
+		<!-- Action Mappings For Order Add Clause Part Of Pop UP- Start -->
+		<action name="OrderClausePartOfPopUpForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.OrderClausePartOfPopUpAction"
+			path="/orderClausePartOfPopUpAction" scope="request"
+			input="OrderClausePartOfPopUp.Layout" validate="true"
+			parameter="method">
+			<forward name="success"
+				path="OrderClausePartOfPopUp.Layout">
+			</forward>
+			<forward name="failure" path="Error.Layout"></forward>
+		</action>
+		<!-- Action Mappings For Order Add Clause Part Of Pop UP- End -->
+
+
+
+
+
+		<!--  Component  Pop Up - Start -->
+		<action name="OrderCompSearchForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.OrderCompSearchAction"
+			path="/orderCompSearchAction" scope="request"
+			input="OrderCompChar.Layout" validate="true" parameter="method">
+			<forward name="success" path="OrderCompChar.Layout"></forward>
+			<forward name="failure" path="Error.Layout"></forward>
+		</action>
+
+		<!--  Component  Pop Up - Ends -->
+
+		<!-- ==============Action Mappings For Order Add Clause Ends Here=========================== -->
+		<!-- ==============Action Mappings For Master Maintenence Report Starts Here=========================== -->
+		<action name="MasterMaintForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.MasterMaintReportAction"
+			path="/MasterMaintReportAction" scope="request"
+			input="MasterMaintReport.Layout" validate="true"
+			parameter="method">
+			<forward name="success" path="MasterMaintReport.Layout"></forward>
+			<forward name="failure" path="Error.Layout"></forward>
+		</action>
+		<action name="MasterMaintForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.MasterMaintReportAction"
+			path="/MasterMaintPopUpAction" scope="request"
+			input="MasterMaintReport.Layout" validate="true"
+			parameter="method">
+			<forward name="success"
+				path="MasterMaintReportPopUp.Layout">
+			</forward>
+			<forward name="failure" path="Error.Layout"></forward>
+		</action>
+		<action name="MasterMaintForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.MasterMaintReportAction"
+			path="/ViewSpecByModel" scope="request"
+			input="MasterMaintReport.Layout" validate="true"
+			parameter="method">
+			<forward name="success"
+				path="MasterMaintReportExcel.Layout">
+			</forward>
+			<forward name="failure" path="Error.Layout"></forward>
+		</action>
+		<!-- ==============Action Mappings For Master Maintenence Report Ends Here=========================== -->
+
+		<!-- Spec Comparison - Start -->
+		<action name="ClauseCompareForm"
+			type="com.EMD.LSDB.action.SpecComparison.ClauseCompareAction"
+			path="/compareSpecAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="ClauseComparison.Layout"></forward>
+			<forward name="popupForExcel"
+				path="ClauseComparisonPopUpForExcel.Layout">
+			</forward>
+			<forward name="popup" path="ClauseComparisonPopUp.Layout"></forward>
+			<!-- Added for CR-135 -->
+			<forward name="orderModelPopup" path="OrderVsModelDeltaPopUp.Layout"></forward>
+		</action>
+
+		<action name="ComponentCompareForm"
+			type="com.EMD.LSDB.action.SpecComparison.ComponentCompareAction"
+			path="/compareComponentAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="ComponentComparison.Layout"></forward>
+			<forward name="popup"
+				path="ComponentComparisonPopUp.Layout">
+			</forward>
+			<forward name="popupForExcel"
+				path="ComponentComparisonPopUpForExcel.Layout">
+			</forward>
+			<forward name="DiffCompPopup"
+				path="DiffCompComparisonPopUp.Layout">
+			</forward>
+			<forward name="popupforedl" path="EdlReportPopUp.Layout"></forward>
+			<forward name="EDLPOPUPEXCEL"
+				path="EdlXLReportPopUp.Layout">
+			</forward>
+		</action>
+		<!-- Spec Comparison Ends -->
+
+		<!-- Accept/Reject NewClause - Start -->
+		<action name="AcceptRejectNewClauseForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.AcceptRejectNewClauseAction"
+			path="/AccRejNewClauseAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success"
+				path="AcceptRejectNewClause.Layout">
+			</forward>
+		</action>
+		<!-- Accept/Reject NewClause - End -->
+
+		<!-- Spec Supplement - Start -->
+		<action name="SpecSupplementForm"
+			type="com.EMD.LSDB.action.SpecSupplement.SpecSupplementAction"
+			path="/SpecSupplement" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="SpecSupplement.Layout"></forward>
+		</action>
+		<!-- Spec Supplement - End -->
+
+		<!-- History - Starts here -->
+		<action name="HistoryForm"
+			type="com.EMD.LSDB.action.History.HistoryAction"
+			path="/HistoryAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="History.Layout"></forward>
+		</action>
+
+		<action name="HistoryEdlPopUpForm"
+			type="com.EMD.LSDB.action.History.HistoryEdlAction"
+			path="/historyEdlAction" scope="request"
+			input="HistoryEdlPopUp.layout" validate="true" parameter="method">
+			<forward name="success" path="HistoryEdlPopUp.Layout"></forward>
+			<forward name="successexcel"
+				path="HistoryEdlExcelPopUp.Layout">
+			</forward>
+		</action>
+
+		<!-- History - Ends here -->
+		<!-- -Add Clause Revision for order level-->
+
+
+		<action name="ClauseRevForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.AddClauseRevAction"
+			path="/AddClauseRev" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="AddClauseRev.Layout"></forward>
+		</action>
+
+		<action name="AddSubClauseForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.AddSubClauseAction"
+			path="/AddSubClause" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="AddSubClause.Layout"></forward>
+		</action>
+
+		<!-- -Add Clause Revision for order level-->
+
+		<!-- View Spec By Order - Start -->
+		<action name="ViewSpecByOrderForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.ViewSpecByOrderAction"
+			path="/ViewSpecByOrder" scope="request"
+			input="ViewSpecByOrder.Layout" validate="true" parameter="method">
+			<forward name="success" path="ViewSpecByOrder.Layout"></forward>
+		</action>
+		<!-- View Spec By Order - End -->
+
+		<!-- Administration - Starts Here -->
+
+
+		<action name="UserMaintForm"
+			type="com.EMD.LSDB.action.admn.UserMaintAction"
+			path="/UserMaintenanceAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="UserMaintenance.Layout"></forward>
+			<!-- Added for CR-113 for new Menu "Broadcast Emails" -->	
+			<forward name="BroadcastEmail" path="BroadcastEmail.Layout"></forward>
+			<!-- Added for CR-113 for new Menu "Broadcast Emails" Ends here-->
+			<!-- Added for CR-124 for new Menu "Pending/Invalid Emails" -->	
+			<forward name="PurgeEmail" path="purgeEmail.Layout"> </forward>
+			<!-- Added for CR-124 for new Menu "Pending/Invalid Emails" Ends here-->
+			<!-- Added for CR-126 for new Menu "Manage Email Subscriptions" -->	
+			<forward name="ManageEmailSubscriptions" path="ManageEmailSubscriptions.Layout"> </forward>
+			<!-- Added for CR-126 for new Menu "Manage Email Subscriptions" Ends here-->
+			<!-- Added for CR-128 for new Menu "Master Maintenance Activity Log" -->	
+			<forward name="activityLog" path="ActivityLog.Layout"> </forward>
+			
+		</action>
+		
+		
+		
+		<!-- Added for LSDB_CR-76 -->
+		<action name="ResetSpecForm"
+			type="com.EMD.LSDB.action.admn.ResetSpecAction"
+			path="/ResetSpecAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="ResetSpec.Layout"></forward>
+		</action>
+
+		<!-- Ends here -->
+
+		<action name="UserMaintForm"
+			type="com.EMD.LSDB.action.common.LogoutAction" path="/LogoutAction"
+			scope="request" input="main.layout" validate="true"
+			parameter="method">
+			<forward name="success" path="login.layout"></forward>
+			<forward name="Home" path="Welcome.Layout"></forward>
+			<forward name="Help" path="Help.Layout"></forward>	
+			<!-- Added for CR-112 to Add Message Of the Day in home screen -->
+			<forward name="Message" path="Welcome.Layout"></forward>
+			<!-- Added for CR-112 to Add Message Of the Day in home screen ends here-->
+		</action>
+
+		<action name="ResetPasswordForm"
+			type="com.EMD.LSDB.action.admn.ResetPasswordAction"
+			path="/ResetPasswordAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="ResetPassword.Layout"></forward>
+
+		</action>
+
+		<!-- Administration - Ends Here -->
+
+		<!-- Action Entries for Appendix Section(LSDB_CR-42) - Starts here -->
+
+		<action name="AppendixForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.AppendixAction"
+			path="/AppendixAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="Appendix.Layout"></forward>
+		</action>
+		<action name="AppendixForm"
+			type="com.EMD.LSDB.common.fileupload.action.DownloadImageAction"
+			path="/DownLoadImage" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="Image.Layout"></forward>
+		</action>
+		<action name="AppendixForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.ShowAppendixImageAction"
+			path="/showAppendix" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="Image.Layout"></forward>
+			<forward name="selectclause" path="SelectClause.Layout"></forward>
+			<forward name="viewmap" path="ViewMap.Layout"></forward>
+		</action>
+		<!--Appendix Section(LSDB_CR-42) - Ends Here -->
+		
+		<!-- CR-91 for viewing model appendix images -->
+		<action name="AppendixForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.AppendixAction"
+			path="/AppendixViewImagesAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="ViewModelAppendixImages.Layout"></forward>
+		</action>
+		<!-- Ends her -->
+		<!-- LSDB-CR 42 Model Appendix Image Maintenance - Starts here -->
+		<action name="ModelAppendixForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.ModelAppendixMaintAction"
+			path="/AppendixMaintenance" scope="request" input="main.Layout"
+			validate="true" parameter="method">
+			<forward name="success" path="AppendixMaint.Layout"></forward>
+
+		</action>
+		<!-- LSDB-CR 42 Model Appendix Image Maintenance - Ends here -->
+
+		<!-- LSDB-CR 49 Delete Accept Reject Delete Clause - Starts Here-->
+		<action name="AcceptRejectClauseForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.AcceptRejectDeleteClauseAction"
+			path="/DeleteIndAcceptRejectClauseAction" scope="request"
+			input="main.Layout" validate="true" parameter="method">
+			<forward name="success" path="AcceptRejectDelete.Layout"></forward>
+		</action>
+
+		<!-- LSDB-CR 49 Delete Accept Reject Delete Clause - Ends Here-->
+
+		<!--Change for LSDB_CR-45 -->
+		<action name="CreateRequestForm"
+			type="com.EMD.LSDB.action.CRForm.CreateRequestIDAction"
+			path="/CreateRequestIDAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="CreateRequest.Layout"></forward>
+		</action>
+
+		<action name="CreateRequestForm"
+			type="com.EMD.LSDB.action.CRForm.CreateRequestIDAction"
+			path="/CreateRequestID" scope="request" input="main.layout"
+			validate="true" parameter="method">
+		</action>
+
+		<action name="ComponentGroupRequestForm"
+			type="com.EMD.LSDB.action.CRForm.ComponentGroupRequestAction"
+			path="/ComponentGroupRequest" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success"
+				path="ComponentGroupRequest.Layout">
+			</forward>
+			<forward name="CRFormEffectedClauses"
+				path="CRFormEffectedClauses.Layout">
+			</forward>
+		</action>
+
+		<action name="ComponentGroupRequestForm"
+			type="com.EMD.LSDB.action.CRForm.ComponentGroupRequestAction"
+			path="/saveRequestComponentGroup" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success"
+				path="ComponentGroupRequest.Layout">
+			</forward>
+		</action>
+
+
+		<action name="ComponentGroupRequestForm"
+			type="com.EMD.LSDB.action.CRForm.ComponentGroupRequestAction"
+			path="/resetRequest" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success"
+				path="ComponentGroupRequest.Layout">
+			</forward>
+		</action>
+
+		<action name="ComponentGroupRequestForm"
+			type="com.EMD.LSDB.action.CRForm.ComponentGroupRequestAction"
+			path="/saveRequestStatus" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success"	path="ComponentGroupRequest.Layout">
+			</forward>
+		</action>
+
+		<action name="ComponentGroupRequestForm"
+			type="com.EMD.LSDB.action.CRForm.ComponentGroupRequestAction"
+			path="/searchRequestComponentGroup" scope="request"
+			input="main.layout" validate="true" parameter="method">
+			<forward name="success"
+				path="ComponentGroupRequest.Layout">
+			</forward>
+		</action>
+
+
+		<!-- CR form - Modify Request ID starts Here -->
+		<action name="ModifyChangeRequestForm"
+			type="com.EMD.LSDB.action.CRForm.ModifyChangeRequestAction"
+			path="/ModifyChangeAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+
+			<forward name="success"
+				path="ModifyChangeRequestForm.Layout">
+			</forward>
+		</action>
+
+		<action name="CreateChangeClauseRequestForm"
+			type="com.EMD.LSDB.action.CRForm.CreateChangeReqClauseAction"
+			path="/CreateChangeReqClauseAction" scope="request"
+			input="main.Layout" validate="true" parameter="method">
+			<forward name="success" path="createCRClause.Layout"></forward>
+			<forward name="CRFormSelectClause"
+				path="CRFormSelectFromClause.Layout">
+			</forward>
+			<forward name="CRFormSelectParentClause"
+				path="CRFormSelectParentClause.Layout">
+			</forward>
+			<forward name="CRFormSelectClauseVersion"
+				path="CRFormSelectClauseVersion.Layout">
+			</forward>
+		</action>
+
+
+		<action name="PreviewRequestForm"
+			type="com.EMD.LSDB.action.CRForm.PreviewRequestAction"
+			path="/PreviewRequestAction" scope="request"
+			input="PreviewRequest.Layout" validate="true" parameter="method">
+			<forward name="success" path="PreviewRequest.Layout"></forward>
+		</action>
+
+		<!-- CR form - Modify Request ID ends Here -->
+
+		<!--  Added for Proof Reading Draft Pdf CR - Starts Here-->
+		<action name="ViewSpecByOrderForm"
+			type="com.EMD.LSDB.action.SpecMaintenance.GenerateProofReadingDraftAction"
+			path="/GenerateProofReadingDraftAction" scope="request"
+			input="main.layout" validate="true" parameter="method">
+			<forward name="success" path="MainFeature.Layout"></forward>
+		</action>
+		<!--  Added for Proof Reading Draft Pdf CR - Starts Here-->
+
+		<!--Added for CR_99 for Regenerate Spec-->
+		<action name="RegenerateSpecForm"
+			type="com.EMD.LSDB.action.admn.RegenerateSpecAction"
+			path="/RegenerateSpecAction" scope="request"
+			input="main.layout" validate="true" parameter="method">
+			<forward name="success" path="RegenerateSpec.Layout"></forward>
+		</action>
+		<!-- CR_99 Ends here-->		
+		
+		<!-- Added For CR_99 to perform Removal of Junk Char from Clause Desc -->
+		
+		<action name="ModelAddClauseForm"
+			type="com.EMD.LSDB.action.common.CommonAppUtilAction"
+			path="/commonAppUtilAction" scope="request"
+			input="main.layout" validate="true" parameter="method">
+		</action>
+		
+		<!-- Ends here for CR_99 -->
+		
+		<!-- Added For CR_100 to bring Suggestions Module -->
+		
+		<action name="SuggestForm" type="com.EMD.LSDB.action.Suggestions.SuggestAction" 
+				path="/SuggestAction" scope="request" input="main.layout" validate="true" parameter="method">
+			<forward name="success" path="Suggestions.Layout"></forward>
+			<forward name="suggestsuccess" path="main.layout"></forward>
+		</action>
+		
+		<action path="/AjaxException"
+			type="org.apache.struts.actions.ForwardAction"
+			parameter="Error.Layout" />
+		<!-- Ends here for CR_100 -->
+		<!-- Added for CR-112  -->
+		<action path="/AjaxUnauthorisedException"
+			type="org.apache.struts.actions.ForwardAction" 
+			parameter="Authorization.Layout" />
+		<!-- Added for CR-112  Ends Here-->
+		<!-- CR_101 Starts here -->
+		<action name="RevisionChangesForm"
+			type="com.EMD.LSDB.action.History.RevisionChangesAction"
+			path="/RevisionChangesAction" scope="request"
+			input="main.layout" validate="true" parameter="method">
+			<forward name="success"
+				path="RevisionChanges.Layout">
+			</forward>
+		</action>
+		<!-- CR_101 Ends here -->
+		
+			<!-- CR_106 Starts here -->
+		<action name="MdlGenInfoTexMaintForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.ModelGenInfoTexMaintAction"
+			path="/GenInfoMaintByModel" scope="request"
+			input="main.layout" validate="true" parameter="method">
+			<forward name="success"
+				path="MdlGenInfoTexMaint.Layout">
+			</forward>
+		</action>
+		<!-- CR_106 Ends here -->
+		
+		<!-- Added for CR_106 - On Demand Spec Supplement -->
+		
+		<action name="OndemandSpecSupplementForm"
+			type="com.EMD.LSDB.action.SpecComparison.OndemandSpecSupplementAction"
+			path="/OndemandSpecSupplement" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="OndemandSpecSupplement.Layout"></forward>
+		</action>
+		<!-- CR_106 Ends here -->
+
+	 	<!-- Added for CR_108 - Order Specific Clause Report-->
+	  	<action input="main.layout" name="OrderSpecificClauseForm"
+	   		parameter="method" path="/OrderSpecificClauseAction" scope="request"
+	   		type="com.EMD.LSDB.action.SpecMaintenance.OrderSpecificClauseAction" validate="true">
+	   		<forward name="success" path="OrderSpecificClauseReport.Layout"/>
+	   		<forward name="popup" path="OrderSpecificClauseReportPopup.Layout"/>
+	   		<forward name="popupForExcel" path="OrderSpecificClauseExcel.Layout"/>
+	  	</action>
+	  	<!-- CR_108 Ends here -->
+	  	
+	  	<!-- Added for CR_109 - Clauses By Components Report -->
+	  	<action name="ClaByCompsForm" path="/ClaByCompsAction" parameter="method" 
+	  			input="main.layout" scope="request" validate="true"
+	  			type="com.EMD.LSDB.action.MasterMaintenance.ClaByCompsAction" >
+	  			<forward name="success" path="ClaByCompsReport.Layout"/>
+	  			<forward name="popupForExcel" path="ClaByCompsReportExcel.Layout"/>
+	  	</action>
+	  	<!-- Added for CR_109 - Ends here-->
+
+	  	<!-- Added for CR_111 - Rearranging Clauses at Order Level -->
+	  	<action name="OrderSectionForm" path="/OrderClaReArrangeAction" parameter="method" 
+	  			input="main.layout" scope="request" validate="true"
+	  			type="com.EMD.LSDB.action.SpecMaintenance.OrderClaReArrangeAction">
+	  			<forward name="success" path="OrderClaReArrange.Layout"/>
+	  	</action>
+	  	<!-- Added for CR_111 - Ends here-->
+	  	<!-- Added by Vb106565 for CR-114 -->
+	  	<action name="CustOptCatForm"
+			type="com.EMD.LSDB.action.MasterMaintenance.CustOptCatAction"
+			path="/CustOptCatAction" scope="request" input="main.layout"
+			validate="true" parameter="method">
+			<forward name="success" path="CustOptCat.Layout"></forward>
+			
+		</action>
+	  	<!-- Added by Vb106565 for CR-114 ends here-->
+	  	
+	  	
+	  	
+	  	<!-- Added for CR_110 Starts Here -->
+  	<action input="main.layout" name="ChangeRequest1058Form" parameter="method" 
+    path="/ChangeRequest1058Action" scope="request"  
+	type="com.EMD.LSDB.action.cr1058.ChangeRequest1058Action" validate="true">
+    <forward name="success" path="1058CreateRequest.Layout"/>
+	<forward name="create" path="1058CreateLsdbRequest.Layout"/>
+	<forward name="ParentClause" path="/jsp/cr1058/1058ParentClausePopUp.jsp"/>
+	<forward name="CR1058SelectClauseVersion" path="CR1058SelectClauseVersion.Layout"/>
+	</action>
+  	<action name="SearchRequest1058Form" path="/SearchRequest1058Action" parameter="method" 
+  	input="main.layout" scope="request" validate="true"
+	type="com.EMD.LSDB.action.cr1058.SearchRequest1058Action">
+	<forward name="success" path="1058SearchRequest.Layout"/>
+	<!-- Added for CR-117 for new Menu "Legacy 1058 Requests" -->	
+	<forward name="1058LegacyRequest" path="1058LegacyRequest.Layout"></forward>
+	<!-- Added for CR-117 for new Menu "Legacy 1058 Requests" Ends here-->
+	<!-- Added for CR-126 for Menu 1058 Reports Starts here -->
+	<forward name="1058Reports" path="1058Reports.Layout"></forward>
+	<!-- Added for CR-126 for Menu 1058 Reports Ends Here-->
+	<!-- Added for CR-118 -->	
+	<forward name="1058SummaryReport" path="/jsp/cr1058/1058SummaryReport.jsp"></forward>
+	<!-- Added for CR-126 -->	
+	<forward name="ViewUnapproved1058withClauseApplied" path="/jsp/cr1058/Unapproved1058Report.jsp"></forward>
+	<forward name="View1058ClauseAppliedtoSpec" path="/jsp/cr1058/1058ClausesAppliedtoSpec.jsp"></forward>
+	<forward name="viewPending1058s" path="/jsp/cr1058/Pending1058s.jsp"></forward>
+	</action>
+  <!-- Added for CR_110 Ends Here -->
+	  	
+	</action-mappings>
+
+	<controller bufferSize="4096" debug="0" maxFileSize="2G"/>
+	<message-resources parameter="ApplicationResources" />
+	<!-- Added for CR_121 ServerSide Error Messages -->
+	<message-resources key="ServerMessageBundle" parameter="ServerSideMessages" null="false" />
+	<!-- Added for CR_121 ServerSide Error Messages Ends-->	
+	<message-resources key="EmdLsdb" parameter="EmdLsdb" null="false" />
+	<message-resources key="quartz" parameter="quartz" null="false" />
+
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions_config"
+			value="/WEB-INF/tiledefinitions.xml" />
+	</plug-in>
+
+	<plug-in className="com.EMD.LSDB.common.util.EMDPluginUtil" />
+</struts-config>
+

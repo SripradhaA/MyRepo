@@ -1,0 +1,773 @@
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration//EN"
+  "http://jakarta.apache.org/struts/dtds/tiles-config.dtd">
+<tiles-definitions>
+
+
+	<!-- =========================== Common Layouts Entries Begin =========================== -->
+
+	<definition name="main.layout"
+		path="/jsp/common/defLayout.jsp">
+		<put name="header" value="/jsp/common/head.jsp" />
+		<put name="footer" value="/jsp/common/foot.jsp" />
+		<put name="body" value="/jsp/common/Login.jsp" />
+	</definition>
+	
+
+	<definition name="login.layout" path="/jsp/common/Login.jsp" />
+
+
+	<definition name="Welcome.Layout" extends="main.layout">
+		<put name="body" value="/jsp/common/Welcome.jsp" />
+	</definition>
+
+
+	<definition name="Authorization.Layout" extends="main.layout">
+		<put name="body" value="/jsp/common/Authorisation.jsp" />
+	</definition>
+	<definition name="ChangePwd.Layout" extends="main.layout">
+		<put name="body" value="/jsp/common/ChangePwd.jsp" />
+	</definition>
+
+	<definition name="Error.Layout" extends="main.layout">
+		<put name="body" value="/jsp/common/error.jsp" />
+	</definition>
+
+	<!-- =========================== Common Layouts Entries Ends =========================== -->
+	<!-- =========================== Spec Supplement Layouts Entries Begin =========================== -->
+	<definition name="SpecSupplement.Layout" extends="main.layout">
+		<put name="body" value="/jsp/SpecSupplement/SpecSupplement.jsp" />
+	</definition>
+
+	<!-- =========================== Spec Supplement Layouts Entries Ends =========================== -->
+	<!-- =========================== MasterMaintenance Layouts Entries Begin =========================== -->
+
+
+	<definition name="SectionMaintenance.Layout"
+		extends="main.layout">
+		<put name="body"
+			value="/jsp/MasterMaintenance/SectionMaint.jsp" />
+	</definition>
+
+	<definition name="Customer.Layout" extends="main.layout">
+		<put name="body" value="/jsp/MasterMaintenance/CustMaint.jsp" />
+	</definition>
+
+	<definition name="GenArrByModel.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/MasterMaintenance/GenArrByModel.jsp" />
+	</definition>
+
+
+	<definition name="Model.Layout" extends="main.layout">
+		<put name="body" value="/jsp/MasterMaintenance/ModelMaint.jsp" />
+	</definition>
+	<definition name="CopyModel.Layout" extends="main.layout">
+		<put name="body" value="/jsp/MasterMaintenance/CopyModel.jsp" />
+	</definition>
+
+	<definition name="ModelSpecificationHome.Layout"
+		extends="main.layout">
+		<put name="body"
+			value="/jsp/MasterMaintenance/SpecificationMaintHome.jsp" />
+	</definition>
+
+	<definition name="Specification.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/MasterMaintenance/AddSpecificationByModel.jsp" />
+	</definition>
+
+	<definition name="SpecificationItem.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/MasterMaintenance/AddSpecificationItemByModel.jsp" />
+	</definition>
+
+	<definition name="ModifySpecByModel.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/MasterMaintenance/ModifySpecificationByModel.jsp" />
+	</definition>
+
+	<definition name="Distributor.Layout" extends="main.layout">
+		<put name="body" value="/jsp/MasterMaintenance/DistMaint.jsp" />
+	</definition>
+
+	<definition name="Component.Layout" extends="main.layout">
+		<put name="body" value="/jsp/MasterMaintenance/CompMaint.jsp" />
+	</definition>
+
+	<definition name="ComponentMap.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/MasterMaintenance/CompMapMaint.jsp" />
+	</definition>
+
+	<definition name="SubSection.Layout" extends="main.layout">
+		<put name="body" value="/jsp/MasterMaintenance/SubSecMaint.jsp" />
+	</definition>
+	
+	<definition name="CreateSpec.Layout" extends="main.layout">
+		<put name="body" value="/jsp/SpecMaintenance/CreateSpec.jsp" />
+	</definition>
+
+	 <!-- <definition name="CreateSpec.Layout" path="/jsp/SpecMaintenance/CreateSpec.jsp"/>Modified for CR_131 -->
+
+	<definition name="ModifySpec.Layout" extends="main.layout">
+		<put name="body" value="/jsp/SpecMaintenance/ModifySpec.jsp" />
+	</definition>
+
+	<definition name="DeleteSpec.Layout" extends="main.layout">
+		<put name="body" value="/jsp/SpecMaintenance/DeleteSpec.jsp" />
+	</definition>
+
+	<definition name="CopySpec.Layout" extends="main.layout">
+		<put name="body" value="/jsp/SpecMaintenance/CopySpec.jsp" />
+	</definition>
+
+
+	<definition name="ComponentGroup.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/MasterMaintenance/CompGroupMaint.jsp" />
+	</definition>
+
+	<!--  Added for CR-26 Component Group Component Report-->
+	<!-- Component Grp Report - Starts Here -->
+	<definition name="CompGrpReport.Layout" extends="main.layout">
+		<put name="body" 	value="/jsp/MasterMaintenance/CompGrpReport.jsp"/>
+		
+	</definition>
+
+	<definition name="CompGrpReportExcel.Layout"
+		path="/jsp/MasterMaintenance/CompGrpReportExcel.jsp">
+	</definition>
+	<!-- Component Grp Report - Ends Here-->
+
+	<definition name="PerfCurveModel.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/MasterMaintenance/ModelPerfCurveMaint.jsp" />
+	</definition>
+
+	<definition name="SelectClauseRevModel.Layout"
+		extends="main.layout">
+		<put name="body"
+			value="/jsp/MasterMaintenance/ModelSelectClauseRev.jsp" />
+	</definition>
+
+	<!-- =========================== ModelAddClause  Entries Starts =========================== -->
+
+	<definition name="AddClauseByModel.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/MasterMaintenance/AddClauseByModel.jsp" />
+	</definition>
+
+	<definition name="LoadParentClauseByModel.Layout"
+		path="/jsp/MasterMaintenance/LoadParentClauseByModel.jsp">
+	</definition>
+
+	<definition name="LoadComponent.Layout"
+		path="/jsp/MasterMaintenance/CompChar.jsp">
+	</definition>
+
+	<definition name="CompChar.Layout"
+		path="/jsp/MasterMaintenance/CompChar.jsp">
+	</definition>
+
+	<definition name="LoadAllClausesByModel.Layout"
+		path="/jsp/MasterMaintenance/LoadAllClausesByModel.jsp">
+	</definition>
+
+	<definition name="ModelClauseDescPopUp.Layout"
+		path="/jsp/MasterMaintenance/ModelClauseDescPopUp.jsp">
+	</definition>
+	
+	<!-- CR_85 -->
+	<definition name="ModelCharClauseDescPopUp.Layout"
+		path="/jsp/MasterMaintenance/ModelCharClauseDescPopUp.jsp">
+	</definition>
+	
+<definition name="CharGrpCombntnLisNotMaptByModelPopUp.Layout"
+		path="/jsp/MasterMaintenance/CharGrpCombntnLisNotMaptByModelPopUp.jsp">
+	</definition>
+<!-- CR_85 -->
+	<definition name="ModAddClauseRev.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/MasterMaintenance/ModelAddClauseRev.jsp" />
+	</definition>
+
+	<definition name="SpecTypeMaint.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/MasterMaintenance/SpecTypeMaint.jsp" />
+	</definition>
+
+	<!-- =========================== ModelAddClause  Entries Ends =========================== -->
+
+	<!-- =========================== MasterMaintenanceReport  Entries Starts =========================== -->
+
+	<definition name="MasterMaintReport.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/MasterMaintenance/MasterMaintReport.jsp" />
+	</definition>
+
+	<definition name="MasterMaintReportPopUp.Layout"
+		path="/jsp/MasterMaintenance/ViewSpecByModel.jsp">
+	</definition>
+
+	<definition name="MasterMaintReportExcel.Layout"
+		path="/jsp/MasterMaintenance/ViewSpecByModelExcl.jsp">
+	</definition>
+	<!-- =========================== MasterMaintenanceReport  Ends Starts =========================== -->
+
+	<!-- Master Spec Report By Model- Starts Here -->
+	<definition name="NewMasterSpecReport.Layout"
+		extends="main.layout">
+		<put name="body"
+			value="/jsp/MasterMaintenance/MasterSpecByMdlReport.jsp" />
+	</definition>
+
+	<definition name="MasterSpecByModelReport.Layout"
+		path="/jsp/MasterMaintenance/MasterSpecByModelReport.jsp">
+	</definition>
+
+	<definition name="MasterSpecByModelExcelReport.Layout"
+		path="/jsp/MasterMaintenance/MasterSpecByModelExcelReport.jsp">
+	</definition>
+
+	<!-- Added for CR_81 -->
+	<definition name="ViewCharGrpByModelReport.Layout"
+		path="/jsp/MasterMaintenance/ViewCharGrpByModelReport.jsp">
+	</definition>
+
+	<definition name="ViewCharGrpByModelExcelReport.Layout"
+		path="/jsp/MasterMaintenance/ViewCharGrpByExcelReport.jsp">
+	</definition>
+
+	<!-- Added for LSDB_CR-77 -->
+	<definition name="CustomerOptionCatalog.Layout"
+		path="/jsp/MasterMaintenance/CustomerOptionCatalogReport.jsp">
+	</definition>
+
+	<!-- Master Spec Report By Model- Endss Here -->
+
+	<!-- ===============(EngineeringData - Maintenance)=====
+		**Added For LSDB_CR-38
+		**Added By ps57222
+		**Added on 14-April-08
+		==================-->
+	<definition name="EnggDataMaint.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/MasterMaintenance/EnggDataMaintenance.jsp" />
+	</definition>
+
+
+	<!-- ============Entries For LSDB_CR-38(EngineeringData - Maintenance) ENDS========-->
+
+	<!-- =========================== SpecMaintenance Layouts Entries Ends ======================== -->
+
+	<definition name="MainFeature.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/SpecMaintenance/MainFeatureInfohome.jsp" />
+	</definition>
+
+	<definition name="SectionView.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/SpecMaintenance/OrderSectionView.jsp" />
+	</definition>
+
+	<!-- Added for LSDB_CR-74 -->
+	<definition name="DisplayReason.Layout"
+		path="/jsp/SpecMaintenance/ClauseReason.jsp">
+	</definition>
+
+	<definition name="PublishSuccess.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/SpecMaintenance/PublishSuccess.jsp" />
+	</definition>
+
+
+
+	<definition name="AddCompInfo.Layout" extends="main.layout">
+		<put name="body" value="/jsp/SpecMaintenance/AddCompInfo.jsp" />
+	</definition>
+
+	<definition name="OrderSpecification.Layout"
+		extends="main.layout">
+		<put name="body"
+			value="/jsp/SpecMaintenance/OrderSpecification.jsp" />
+	</definition>
+	<definition name="AddSpecItemByOrder.Layout"
+		extends="main.layout">
+		<put name="body"
+			value="/jsp/SpecMaintenance/AddSpecificationItemByOrder.jsp" />
+	</definition>
+	<definition name="AddSpecByOrder.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/SpecMaintenance/AddSpecificationByOrder.jsp" />
+	</definition>
+
+	<definition name="ModifySpecByOrder.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/SpecMaintenance/ModifySpecificationByOrder.jsp" />
+	</definition>
+
+
+	<definition name="AcceptRejectNewClause.Layout"
+		extends="main.layout">
+		<put name="body"
+			value="/jsp/SpecMaintenance/AcceptRejectNewClause.jsp" />
+	</definition>
+	<definition name="GenArrByOrder.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/SpecMaintenance/GeneralArrangementByOrder.jsp" />
+	</definition>
+
+	<definition name="OrderPerfCurve.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/SpecMaintenance/PerfCurveOrder.jsp" />
+	</definition>
+
+	<definition name="SearchClausePopUp.Layout">
+		<put name="body"
+			value="/jsp/MasterMaintenance/SearchClausePopUp.jsp" />
+	</definition>
+
+	<definition name="ClauseComparison.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/SpecComparison/SpecComparisonByClause.jsp" />
+	</definition>
+
+
+	<definition name="ClauseComparisonPopUp.Layout"
+		path="/jsp/SpecComparison/ClauseComparisonPopUp.jsp">
+	</definition>
+
+	<definition name="ClauseComparisonPopUpForExcel.Layout"
+		path="/jsp/SpecComparison/ClauseComparisonPopUpForExcel.jsp">
+	</definition>
+
+	<definition name="ComponentComparisonPopUp.Layout"
+		path="/jsp/SpecComparison/ComponentComparisonPopUp.jsp">
+	</definition>
+	<definition name="EdlReportPopUp.Layout"
+		path="/jsp/SpecComparison/EdlComparision.jsp">
+	</definition>
+	<definition name="EdlXLReportPopUp.Layout"
+		path="/jsp/SpecComparison/EdlComparisionForExcel.jsp">
+	</definition>
+
+	<!-- ===============(Difference Component Comparison)=====
+		**Added For LSDB_CR-06
+		**Added By ps57222
+		**Added on 15-April-08
+		==================-->
+	<definition name="DiffCompComparisonPopUp.Layout"
+		path="/jsp/SpecComparison/DifferenceComparison.jsp">
+	</definition>
+
+	<definition name="ComponentComparison.Layout"
+		extends="main.layout">
+		<put name="body"
+			value="/jsp/SpecComparison/SpecComparisonByComponent.jsp" />
+	</definition>
+
+	<definition name="ComponentComparisonPopUpForExcel.Layout"
+		path="/jsp/SpecComparison/ComponentComparisonPopUpForExcel.jsp">
+	</definition>
+
+	<definition name="OrderPartofPopUp.Layout"
+		path="/jsp/SpecMaintenance/OrderSectionPopUp.jsp">
+	</definition>
+
+
+	<definition name="AddClauseRev.Layout" extends="main.layout">
+		<put name="body" value="/jsp/SpecMaintenance/AddClauseRev.jsp" />
+	</definition>
+
+	<!-- =========================== OrderAddClause  Entries Starts =========================== -->
+	<definition name="AddClauseOrder.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/SpecMaintenance/AddClauseOrder.jsp" />
+	</definition>
+
+	<definition name="LoadOrderComponent.Layout"
+		path="/jsp/SpecMaintenance/OrderCompChar.jsp">
+	</definition>
+
+	<definition name="OrderCompChar.Layout"
+		path="/jsp/SpecMaintenance/OrderCompChar.jsp">
+	</definition>
+
+	<definition name="OrderClausePartOfPopUp.Layout"
+		path="/jsp/SpecMaintenance/OrderClausePartofPopUp.jsp">
+	</definition>
+	<!-- =========================== OrderAddClause  Entries Ends =========================== -->
+
+	<!-- =========================== SpecMaintenance Layouts Entries Ends =========================== -->
+
+	<!-- =========================== Add Clause Revision Pop Up Begin =========================== -->
+
+	<definition name="AddClauseRev.Layout" extends="main.layout">
+		<put name="body" value="/jsp/SpecMaintenance/AddClauseRev.jsp" />
+	</definition>
+
+
+	<definition name="AddSubClause.Layout" extends="main.layout">
+		<put name="body" value="/jsp/SpecMaintenance/AddSubClause.jsp" />
+	</definition>
+
+	<!-- =========================== Add Clause Revision Pop Up Ends =========================== -->
+
+	<definition name="ModelIndAcceptRejectClause.Layout"
+		extends="main.layout">
+		<put name="body"
+			value="/jsp/SpecMaintenance/ModelIndAcceptRejectClause.jsp" />
+	</definition>
+
+	<definition name="CopyIndAcceptRejectClause.Layout"
+		extends="main.layout">
+		<put name="body"
+			value="/jsp/SpecMaintenance/CopyIndAcceptRejectClause.jsp" />
+	</definition>
+	<definition name="OrderSelectClauseRev.Layout"
+		extends="main.layout">
+		<put name="body"
+			value="/jsp/SpecMaintenance/OrderSelectClauseRev.jsp" />
+	</definition>
+	<!-- History - Starts Here -->
+	<definition name="History.Layout" extends="main.layout">
+		<put name="body" value="/jsp/History/History.jsp" />
+	</definition>
+	<definition name="HistoryEdlPopUp.Layout"
+		path="/jsp/History/HistoryEdlPopUp.jsp">
+	</definition>
+	<definition name="HistoryEdlExcelPopUp.Layout"
+		path="/jsp/History/HistoryEdlExcelPopUp.jsp">
+	</definition>
+
+	<!-- History - Ends Here -->
+
+	<!-- View Spec By Order - Starts Here -->
+	<definition name="ViewSpecByOrder.Layout"
+		path="/jsp/SpecMaintenance/ViewSpecByOrder.jsp">
+	</definition>
+	<!-- View Spec By Order - Ends Here-->
+
+	<!-- Administration - Starts Here -->
+
+	<definition name="ResetPassword.Layout" extends="main.layout">
+		<put name="body" value="/jsp/admn/ResetPassword.jsp" />
+	</definition>
+
+
+
+	<definition name="UserMaintenance.Layout" extends="main.layout">
+		<put name="body" value="/jsp/admn/UserMaint.jsp" />
+	</definition>
+
+	<!-- Added for LSDB_CR-76 -->
+	<definition name="ResetSpec.Layout" extends="main.layout">
+		<put name="body" value="/jsp/admn/ResetSpec.jsp" />
+	</definition>
+
+
+	<definition name="Help.Layout" extends="main.layout">
+		<put name="body" value="/jsp/common/Help.jsp" />
+	</definition>
+
+	<definition name="Session.Layout" extends="main.layout">
+		<put name="body" value="/jsp/common/Session.jsp" />
+	</definition>
+
+	<!-- Administration - Ends Here -->
+
+	<!-- Action Entries for Appendix Section(LSDB_CR-42) - Starts here -->
+
+	<definition name="Appendix.Layout" extends="main.layout">
+		<put name="body" value="/jsp/SpecMaintenance/Appendix.jsp" />
+	</definition>
+
+	<definition name="Image.Layout"
+		path="/jsp/SpecMaintenance/Image.jsp">
+	</definition>
+	<definition name="SelectClause.Layout"
+		path="/jsp/SpecMaintenance/OrderClauseDescPopup.jsp">
+	</definition>
+	<definition name="ViewMap.Layout"
+		path="/jsp/SpecMaintenance/ViewMapping.jsp">
+	</definition>
+	<!-- Appendix Section(LSDB_CR-42) - Ends Here-->
+	<!-- CR-91 for viewing model appendix images -->
+	<definition name="ViewModelAppendixImages.Layout"
+		path="/jsp/SpecMaintenance/ViewModelAppendixImages.jsp">
+	</definition>
+	<!-- Ends here -->
+	<!-- Added for CR 42 Model Appendix Maintenance-->
+	<definition name="AppendixMaint.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/MasterMaintenance/ModelAppendixMaint.jsp" />
+	</definition>
+	<!-- Added for CR 42 Model Appendix Maintenance-->
+
+	<!-- Added for CR 49 Accept Reject Delete Clause-->
+	<definition name="AcceptRejectDelete.Layout"
+		extends="main.layout">
+		<put name="body"
+			value="/jsp/SpecMaintenance/DeleteIndAcceptReject.jsp" />
+	</definition>
+	<!-- Added for CR 49 Accept Reject Delete Clause-->
+
+	<!-- Added for LSDB_CR-45 -->
+	<definition name="CreateRequest.Layout" extends="main.layout">
+		<put name="body" value="/jsp/CRForm/CreateChangeRequest.jsp" />
+	</definition>
+
+	<definition name="ComponentGroupRequest.Layout"
+		extends="main.layout">
+		<put name="body" value="/jsp/CRForm/ChangeCompGroup.jsp" />
+	</definition>
+
+
+	<!-- Added for CR 45 Modify CRForm-->
+	<definition name="ModifyChangeRequestForm.Layout"
+		extends="main.layout">
+		<put name="body" value="/jsp/CRForm/ModifyChangeRequest.jsp" />
+	</definition>
+
+	<!-- Added for CR 45 Modify CRForm-->
+
+	<!-- Added for CR 45 Clause CRForm-->
+
+	<definition name="createCRClause.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/CRForm/CreateChangeClauseRequest.jsp" />
+	</definition>
+
+
+	<definition name="CRFormSelectFromClause.Layout"
+		path="/jsp/CRForm/SelectClauseByModel.jsp">
+	</definition>
+
+	<definition name="CRFormSelectParentClause.Layout"
+		path="/jsp/CRForm/SelectParentClause.jsp">
+	</definition>
+
+	<definition name="CRFormSelectClauseVersion.Layout"
+		path="/jsp/CRForm/SelectVersions.jsp">
+	</definition>
+
+	<definition name="PreviewRequest.Layout"
+		path="/jsp/CRForm/PreviewRequest.jsp">
+
+	</definition>
+
+	<definition name="UnmapComponentGroup.Layout"
+		extends="main.layout">
+		<put name="body"
+			value="/jsp/MasterMaintenance/UnMapCompGrp.jsp" />
+	</definition>
+	<!-- Added For CR_93 - CopyOrderComp.Layout -->
+	<definition name="CopyOrderComp.Layout"
+		extends="main.layout">
+		<put name="body"
+			value="/jsp/MasterMaintenance/CopyOrderComp.jsp" />
+	</definition>
+	<!-- Added for CR-68 Order New Component-->
+	<definition name="AddOrderComponent.Layout" path="/jsp/SpecMaintenance/OrderNewComp.jsp"></definition>
+	
+	<!-- Added for CR_80 CR Form Enhancements III-->
+	<definition name="CRFormEffectedClauses.Layout" path="/jsp/CRForm/ViewEffectedClauses.jsp"></definition>
+
+	<!-- Added for CR_81 Locomotive and Power Products Enhancements -->
+	<definition name="ModAssignEdl.Layout" extends="main.layout">
+		<put name="body" value="/jsp/MasterMaintenance/ModelAssignEdl.jsp"/>
+	</definition>
+	
+	<!-- Added For CR No.85 -->
+	<definition name="ViewUnlinkClause.Layout"
+		path="/jsp/MasterMaintenance/ViewUnlinkClause.jsp">
+	</definition>
+	
+	<definition name="EdlIndAcceptRejectAction.Layout" extends="main.layout">
+		<put name="body" value="/jsp/SpecMaintenance/EdlIndAcceptReject.jsp"/>
+	</definition>
+	
+	<!-- Added For CR No.83 -->
+	<definition name="AddModifyClause.Layout" extends="main.layout">
+		<put name="body" value="/jsp/MasterMaintenance/AddModifyModelClause.jsp" />
+	</definition>
+	<!-- Added For CR No.83 - Ends here -->
+	
+	<!-- Added For CR No.85 -->
+	<definition name="UnlinkCharGrpCombntnList.Layout"
+		path="/jsp/MasterMaintenance/UnlinkCharGrpCombntnList.jsp">
+	</definition>
+	<!-- Added For CR No.85 - Ends here -->
+<!-- Added For CR No.92 -->
+	<definition name="ViewClauseMapping.Layout"
+		path="/jsp/MasterMaintenance/ViewClauseMapping.jsp">
+	</definition>
+     <definition name="deletedClausesHistory.Layout" extends="main.layout">
+		<put name="body" value="/jsp/SpecMaintenance/DeleteClausesHistory.jsp" />
+	</definition>
+<!-- Added For CR No.92 - Ends here -->
+
+<!-- Added for CR_99 for Regenerate Spec for PDFs -->
+
+	<definition name="RegenerateSpec.Layout" extends="main.layout">
+		<put name="body" value="/jsp/admn/RegenerateSpec.jsp" />
+	</definition>
+	
+<!-- CR_99 Ends Here -->
+
+<!-- Added for CR_100 for Suggestions Module -->
+
+	<definition name="Suggestions.Layout" extends="main.layout">
+		<put name="body" value="/jsp/Suggestions/Suggestions.jsp" />
+	</definition>
+<!-- CR_100 Ends Here -->	
+
+	
+	<!-- Added for CR_101 -->
+	<definition name="RevisionChanges.Layout" extends="main.layout">
+		<put name="body" value="/jsp/History/RevisionChanges.jsp" /> 
+	</definition>
+	<!-- CR_101 Ends here--> 
+	<!-- Added for CR_106 -->
+	<definition name="MdlGenInfoTexMaint.Layout" extends="main.layout">
+		<put name="body" value="/jsp/MasterMaintenance/MdlGenInfoTexMaint.jsp" /> 
+	</definition>
+	<!-- CR_106 Ends here--> 
+
+	
+	<!-- Added for CR_106 - Ondemand Spec Supplement -->
+	<definition name="OndemandSpecSupplement.Layout" extends="main.layout">
+		<put name="body" value="/jsp/SpecComparison/OndemandSpecSupplement.jsp" />
+	</definition>
+	<!-- CR_106 Ends here--> 
+
+	<!-- Added for CR_106 -->
+	<definition name="CustLogo.Layout" 
+path="/jsp/MasterMaintenance/CustLogo.jsp" > 
+	</definition>
+	<definition name="DistLogo.Layout" 
+path="/jsp/MasterMaintenance/DistLogo.jsp" > 
+	</definition>
+	<!-- CR_106 Ends here--> 
+	
+	<!-- Added for CR_108 -->
+	<definition name="CompInOrder.Layout" extends="main.layout">
+		<put name="body"
+			value="/jsp/MasterMaintenance/CompInOrderReport.jsp" />
+		
+	</definition>
+
+	<definition name="CompInOrderExcel.Layout" 
+		path="/jsp/MasterMaintenance/CompInOrderReportExcel.jsp">
+	</definition>
+
+	<definition name="OrderSpecificClauseReport.Layout" extends="main.layout">
+		<put name="body" value="/jsp/SpecMaintenance/OrderSpecificClauseReport.jsp" />
+	</definition>
+
+	<definition name="OrderSpecificClauseReportPopup.Layout" path="/jsp/SpecMaintenance/OrdrSpecificClaPopup.jsp">
+	</definition>
+
+	<definition name="OrderSpecificClauseExcel.Layout" path="/jsp/SpecMaintenance/OrdrSpecificClaExcel.jsp">
+	</definition>
+	<!-- CR_108 Ends here--> 
+	
+	<!-- Added for CR_109 -->
+	<definition name="LoadAllComponent.Layout" path="/jsp/SpecMaintenance/LoadAllComponents.jsp">
+	</definition>
+
+	<definition name="ClaByCompsReport.Layout" extends="main.layout">
+		<put name="body" value="/jsp/MasterMaintenance/ClaByCompsReport.jsp" /> 
+	</definition>
+	
+	<definition name="ClaByCompsReportExcel.Layout" path="/jsp/MasterMaintenance/ClaByCompsReportExcel.jsp"> 
+	</definition>
+	<!-- CR_109 Ends here--> 
+	
+	<!-- Added for CR_111 -->
+	<definition name="OrderClaReArrange.Layout" extends="main.layout">
+		<put name="body" value="/jsp/SpecMaintenance/OrderClaReArrange.jsp" /> 
+	</definition>
+	<!-- CR_111 Ends here--> 
+	
+	<!-- Added for CR_113 -->
+	<definition name="ClausesWithIndicators.Layout" extends="main.layout">
+		<put name="body" value="/jsp/SpecMaintenance/ClausesWithIndicators.jsp" />
+	</definition>
+	
+	<definition name="BroadcastEmail.Layout" extends="main.layout">
+		<put name="body" value="/jsp/admn/BroadcastEmail.jsp" />
+	</definition>
+	
+	<definition name="ClaInOrdersReport.Layout" extends="main.layout">
+		<put name="body" value="/jsp/MasterMaintenance/ClaInOrdersReport.jsp" />
+	</definition>
+	
+	<definition name="ClaInOrdersReportExcel.Layout" 
+		path="/jsp/MasterMaintenance/ClaInOrdersReportExcel.jsp">
+	</definition>
+	
+	<!-- CR_113 Ends here--> 
+	
+	<!-- Added for CR_110 Starts here -->
+	<definition name="1058CreateRequest.Layout" extends="main.layout">
+	<put name="body" value="/jsp/cr1058/1058CreateRequest.jsp" />
+	</definition>
+	
+	<definition name="1058CreateLsdbRequest.Layout" extends="main.layout">
+	<put name="body" value="/jsp/cr1058/1058CreateLsdbRequest.jsp" />
+	</definition>
+	
+	<definition name="1058SearchRequest.Layout" extends="main.layout">
+	<put name="body" value="/jsp/cr1058/1058SearchRequest.jsp" />
+	</definition>
+
+	<definition name="ParentClause1058.Layout">
+	<put name="body" value="/jsp/cr1058/1058ParentClausePopUp.jsp" />
+	</definition>
+	
+	<definition name="CR1058SelectClauseVersion.Layout"
+		path="/jsp/cr1058/1058ClauseVersionPopUp.jsp">
+	</definition>
+	
+	<!-- Added for CR_110 Ends here -->
+	
+	<!-- Added for CR_117 Starts here -->
+	
+	<definition name="1058LegacyRequest.Layout" extends="main.layout">
+		<put name="body" value="/jsp/cr1058/1058LegacyRequest.jsp" />
+	</definition>
+	
+	<!-- Added for CR_117 Ends here -->
+	
+	<!-- Added for CR_114 by vb106565 Starts here -->
+	<definition name="CustOptCat.Layout" extends="main.layout">
+		<put name="body" value="/jsp/MasterMaintenance/CustOptCat.jsp" />
+	</definition>
+	<!-- Added for CR_114 by vb106565 ends here -->
+	<!-- Added for CR-124 Starts here -->
+	<definition name="purgeEmail.Layout" extends="main.layout">
+		<put name="body" value="/jsp/admn/PurgeEmail.jsp" />
+	</definition>
+	<!-- Added for CR-124 Ends here -->
+	<!-- Added for CR-126 Starts here -->
+	<definition name="1058Reports.Layout" extends="main.layout">
+		<put name="body" value="/jsp/cr1058/1058Reports.jsp" />
+	</definition>
+	<definition name="ManageEmailSubscriptions.Layout" extends="main.layout">
+		<put name="body" value="/jsp/admn/ManageEmailSubscriptions.jsp" />
+	</definition>
+	<!-- Added for CR-126 Ends here -->
+	<!-- Added for Cr-128 starts here -->
+	<definition name="ActivityLog.Layout" extends="main.layout">
+		<put name="body" value="/jsp/admn/ActivityLog.jsp" />
+	</definition>
+	<!-- Added for Cr-128 ends here -->
+	
+	<!-- Added for Cr-135 starts here -->
+	<definition name="OrderVsModelDeltaPopUp.Layout"
+		path="/jsp/SpecComparison/OrderVsModelDeltaPopup.jsp">
+	</definition>
+	<!-- Added for Cr-135 ends here -->
+</tiles-definitions>

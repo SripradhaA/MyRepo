@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<title>Spell Checking</title>
+<script type="text/javascript">
+var o;
+var b;
+var a;
+function init(){
+	a = window.dialogArguments;
+	b = a[1];
+	o = a[0];
+	container.document.writeln(b);
+	container.document.forms[0].submit();
+}
+</script>
+</HEAD>
+<body onLoad="init()">
+<IFRAME id=container width=100% HEIGHT=100% FRAMEBORDER=0 ALIGN=CENTER HSPACE=0 MARGINWIDTH=14 MARGINHEIGHT=4 VSPACE=0></IFRAME>
+</body>
+</html>

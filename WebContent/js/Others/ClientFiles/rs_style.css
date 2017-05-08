@@ -1,0 +1,59 @@
+.inlineTB{
+	font-family: Arial, Helvetica, Sans-serif ; 
+	font-size: 10pt;
+	color:	black;
+}
+
+.RS_MultiLineTB{
+	margin:0px;
+	padding:2px;
+	font-family: 'Microsoft Sans Serif';
+	font-size: 10pt;
+	word-wrap: break-word;
+
+}
+
+
+
+
+.RS_SingleLineTB{
+	margin:0px;
+	padding:2px;
+
+	font-family: 'Microsoft Sans Serif';
+	font-size: 10pt;
+	OVERFLOW: hidden;
+	white-space: nowrap;
+}
+
+
+.RS_SingleLineTB_Disabled, .RS_MultiLineTB_Disabled{
+	margin:0px;
+	padding:2px;
+	font-family: 'Microsoft Sans Serif';
+	font-size: 10pt;
+	color: #ACA899;
+		OVERFLOW: hidden;
+	white-space: nowrap;
+}
+
+
+.oldBrowserBox{
+	OVERFLOW: scroll;
+	height: 400px;
+	width:100 px;
+	border:2px solid #F88158; padding: 2px;
+	Z-INDEX: 900;
+	background-color: White;
+/*	margin:1px;*/
+}
+
+.rs_err_hl
+{
+	background-image: url(a.rapidspellweb?t=r&n=underline.png);
+	background-position: bottom;
+	background-repeat: repeat-x;
+	cursor: pointer;
+	cursor: hand;
+}
+
