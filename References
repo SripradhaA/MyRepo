@@ -1,0 +1,14 @@
+# MyRepo
+
+EMD_LSDB1 project:
+
+Procedure changes done in code are seen in EMD-LSDB1/src/com/EMD/LSDB/dao/admn/UserMaintDAO.java
+
+AdmnQueries.java where the query resides are seen in EMD-LSDB1/src/com/EMD/LSDB/dao/common/AdmnQueries.java
+
+DBHelper.java where the database connections are seen in EMD-LSDB1/src/com/EMD/LSDB/dao/common/EMDQueries.java
+
+LoginDAO.java is seen in EMD-LSDB1/src/com/EMD/LSDB/dao/common/LoginDAO.java
+
+
+
